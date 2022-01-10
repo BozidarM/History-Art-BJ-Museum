@@ -10,12 +10,12 @@ import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-deta
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
-import { OrderHistoryComponent } from './profile/order-history/order-history.component';
 import { RateCommentComponent } from './profile/rate-comment/rate-comment.component';
 import { PlannerExhibitionComponent } from './planner-exhibition/planner-exhibition.component';
 import { PlannerComponent } from './planner-exhibition/planner/planner.component';
 import { ExhibitionsComponent } from './planner-exhibition/exhibitions/exhibitions.component';
 import { UpdateExhibitionComponent } from './planner-exhibition/update-exhibition/update-exhibition.component';
+import { ExhibitionHistoryComponent } from './profile/exhibition-history/exhibition-history.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +27,12 @@ import { UpdateExhibitionComponent } from './planner-exhibition/update-exhibitio
     HomeComponent,
     ProfileComponent,
     ProfilePageComponent,
-    OrderHistoryComponent,
     RateCommentComponent,
     PlannerExhibitionComponent,
     PlannerComponent,
     ExhibitionsComponent,
-    UpdateExhibitionComponent
+    UpdateExhibitionComponent,
+    ExhibitionHistoryComponent
   ],
   imports: [
     BrowserModule,
