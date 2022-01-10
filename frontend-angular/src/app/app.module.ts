@@ -8,12 +8,14 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ExhibitionListComponent } from './exhibition-list/exhibition-list.component';
 import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-details.component';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
 import { OrderHistoryComponent } from './profile/order-history/order-history.component';
 import { RateCommentComponent } from './profile/rate-comment/rate-comment.component';
-import { FavoritesComponent } from './profile/favorites/favorites.component';
+import { PlannerExhibitionComponent } from './planner-exhibition/planner-exhibition.component';
+import { PlannerComponent } from './planner-exhibition/planner/planner.component';
+import { ExhibitionsComponent } from './planner-exhibition/exhibitions/exhibitions.component';
+import { UpdateExhibitionComponent } from './planner-exhibition/update-exhibition/update-exhibition.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { FavoritesComponent } from './profile/favorites/favorites.component';
     ExhibitionListComponent,
     ExhibitionDetailsComponent,
     HomeComponent,
-    NavbarComponent,
     ProfileComponent,
     ProfilePageComponent,
     OrderHistoryComponent,
     RateCommentComponent,
-    FavoritesComponent
+    PlannerExhibitionComponent,
+    PlannerComponent,
+    ExhibitionsComponent,
+    UpdateExhibitionComponent
   ],
   imports: [
     BrowserModule,
