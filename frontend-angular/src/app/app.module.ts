@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ExhibitionListComponent } from './exhibition-list/exhibition-list.component';
-import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-details.component';
+
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfilePageComponent } from './profile/profile-page/profile-page.component';
@@ -16,14 +15,14 @@ import { PlannerComponent } from './planner-exhibition/planner/planner.component
 import { ExhibitionsComponent } from './planner-exhibition/exhibitions/exhibitions.component';
 import { UpdateExhibitionComponent } from './planner-exhibition/update-exhibition/update-exhibition.component';
 import { ExhibitionHistoryComponent } from './profile/exhibition-history/exhibition-history.component';
+import { ExhibitsComponent } from './exhibits/exhibits.component';
+import { ExhibitDetailsComponent } from './exhibit-details/exhibit-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ExhibitionListComponent,
-    ExhibitionDetailsComponent,
     HomeComponent,
     ProfileComponent,
     ProfilePageComponent,
@@ -32,7 +31,9 @@ import { ExhibitionHistoryComponent } from './profile/exhibition-history/exhibit
     PlannerComponent,
     ExhibitionsComponent,
     UpdateExhibitionComponent,
-    ExhibitionHistoryComponent
+    ExhibitionHistoryComponent,
+    ExhibitsComponent,
+    ExhibitDetailsComponent
   ],
   imports: [
     BrowserModule,
