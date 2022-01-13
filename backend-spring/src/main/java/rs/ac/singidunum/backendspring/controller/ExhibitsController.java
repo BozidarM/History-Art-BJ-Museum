@@ -22,10 +22,10 @@ public class ExhibitsController {
         return exhibitsService.findAll();
     }
 
-    @GetMapping("candy/{id}")
+    @GetMapping("exhibit/{id}")
     @CrossOrigin(origins = "*")
-    public Exhibits findExhibitsById(@PathVariable("id") String id){
-        return this.exhibitsService.findExhibitsById(id);
+    public Exhibits findExhibitById(@PathVariable("id") String id){
+        return this.exhibitsService.findExhibitById(id);
     }
 
     @GetMapping("search/{title}")

@@ -20,7 +20,7 @@ public class ExhibitsService implements IExhibitsService{
     public List<Exhibits> findAll() { return exhibitsRepository.findAll();}
 
     @Override
-    public Exhibits findExhibitsById(String id){ return exhibitsRepository.findExhibitsById(id);}
+    public Exhibits findExhibitById(String id){ return exhibitsRepository.findExhibitById(id);}
 
     @Override
     public List<Exhibits> findAllByTitle(String title){ return exhibitsRepository.findAllByTitle(title);}
@@ -30,7 +30,7 @@ public class ExhibitsService implements IExhibitsService{
 
     @Override
     public Exhibits updateStars (ExhibitsModel model){
-        Exhibits exhibit = exhibitsRepository.findExhibitsById(model.getId());
+        Exhibits exhibit = exhibitsRepository.findExhibitById(model.getId());
 
         exhibit.getStars().add(model.getRating());
 

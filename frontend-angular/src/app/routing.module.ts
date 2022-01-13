@@ -13,7 +13,7 @@ const rute: Routes = [
     {path: '', component: WelcomeComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'products', component: ExhibitsExhibitionsComponent},
+    {path: 'collection', component: ExhibitsExhibitionsComponent},
     {path: 'planner', component: PlannerExhibitionsComponent},
     {path: 'exhibits/exhibit/:id', component: ExhibitDetailsComponent},
     {path: 'users', component: UsersComponent}

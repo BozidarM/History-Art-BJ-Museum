@@ -1,0 +1,96 @@
+mat-card{
+    margin: 15px 5px;
+}
+
+.main{
+    margin-top: 8px;
+}
+
+#planner-div{
+    width: 100%;
+    background-color: #d6d6d6;
+}
+
+mat-form-field{
+    width: 80%;
+    text-align: center;
+    font-size: 20px;
+}
+
+mat-card-title{
+    color: #ed5e06;
+}
+
+.sideFilter{
+    width: 20%;
+    padding-top: 20px;
+    background-color: #f3f3f3;
+}
+
+#plannerIcon p{
+    margin: 5px;
+    font-size: 25px;
+}
+
+mat-icon {
+    font-size: 30px;
+}
+
+#plannerIcon{
+    font-size: 30px;
+    color: #ed5e06;
+    cursor: pointer;
+    padding: 10px 5px;
+    transition: 0.3s;
+    border: 2px solid #ed5e06;
+    border-radius: 5px;
+}
+
+#plannerIcon:hover{
+    background-color: #ed5e06;
+    color: #f3f3f3;
+    /* padding: 25px 150px; */
+    transition: 0.3s;
+}
+
+#pagination{
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 8vh;
+}
+
+.check{
+    width: 90%;
+    box-shadow: 1px 1px 1px #d6d6d6;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.check h4{
+    color: #ed5e06;
+}
+
+mat-slider{
+    width: 90%;
+}
+
+#sort{
+    margin-top: 20px;
+}
+
+pagination-controls{
+    color: #ed5e06;
+}
+
+li{
+    background-color: #ed5e06;
+}
+
+.my-pagination /deep/ .ngx-pagination{
+    font-size: 20px;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #ed5e06;
+    
+}

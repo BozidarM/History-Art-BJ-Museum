@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IExhibitsService {
     List<Exhibits> findAll();
-    Exhibits findExhibitsById(String id);
+    Exhibits findExhibitById(String id);
     List<Exhibits> findAllByTitle(String title);
     List<Exhibits> findAllByRating(int rating);
     Exhibits updateStars(ExhibitsModel model);

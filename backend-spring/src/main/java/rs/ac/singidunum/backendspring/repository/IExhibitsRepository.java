@@ -7,7 +7,7 @@ import rs.ac.singidunum.backendspring.entity.Exhibits;
 import java.util.List;
 
 public interface IExhibitsRepository extends MongoRepository<Exhibits, String>{
-    Exhibits findExhibitsById(String id);
+    Exhibits findExhibitById(String id);
     @Query(value = "{'title': {$regex : ?0, $options: 'i'}}")
     List<Exhibits> findAllByTitle(String title);
     @Query(value = "{'culture': {$regex : ?0, $options: 'i'}}")

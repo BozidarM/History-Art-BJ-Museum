@@ -5,7 +5,7 @@
     </div>
 
     <div fxFlex fxLayoutAlign="end" fxLayoutGap="25px">
-        <a routerLink="/products">Products</a>
+        <a routerLink="/collection">Collection</a>
         <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/users">Profile</a>
         <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/planner">Cart</a>
         <a *ngIf="!(loggedIn$ | async) as loggedIn" routerLink="/signup">SignUp</a>
