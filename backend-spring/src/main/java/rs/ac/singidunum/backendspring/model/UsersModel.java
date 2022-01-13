@@ -14,8 +14,7 @@ public class UsersModel {
     private String password;
     private String city;
     private String address;
-    private String birthday;
     private String phone;
-    private List<Object> favoritesExhibits;
-    private List<Object> favoritesExhibitions;
+    private String birthday;
+    private List<Object> favorites;
 }

@@ -16,7 +16,7 @@ public class Users {
     private String fullname;
     @Field("email")
     private String email;
-    @Field("useranme")
+    @Field("username")
     private String username;
     @Field("password")
     private String password;
@@ -24,12 +24,10 @@ public class Users {
     private String city;
     @Field("address")
     private String address;
-    @Field("birthday")
-    private String birthday;
     @Field("phone")
     private String phone;
-    @Field("favoritesExhibits")
-    private List<Object> favoritesExhibits;
-    @Field("favoritesExhibitions")
-    private List<Object> favoritesExhibitions;
+    @Field("birthday")
+    private String birthday;
+    @Field("favorites")
+    private List<Object> favorites;
 }

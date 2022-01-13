@@ -15,10 +15,10 @@ public class CommentsController {
     @Autowired
     private CommentsService commentsService;
 
-    @GetMapping ("all-comments/{candiesId}")
+    @GetMapping ("all-comments/{exhibitId}")
     @CrossOrigin(origins = "*")
-    public List<Comments> findAllByCandiesId(@PathVariable("candiesId") String candiesId){
-        return commentsService.findAllByExhibitsId(candiesId);
+    public List<Comments> findAllByExhibitId(@PathVariable("exhibitId") String exhibitId){
+        return commentsService.findAllByExhibitId(exhibitId);
     }
 
     @PostMapping("insert")

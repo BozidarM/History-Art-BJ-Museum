@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#footer{
+    min-height: 20vh;
+    background-color: #000000;
+    width: 100%;
+    color: white;
+}
+
+h2{
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#logo{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 50px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 80px;
+}

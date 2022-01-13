@@ -7,7 +7,7 @@ import rs.ac.singidunum.backendspring.model.CommentsModel;
 import java.util.List;
 
 public interface ICommentsService {
-    List<Comments> findAllByExhibitsId(String exhibitsId);
+    List<Comments> findAllByExhibitId(String exhibitId);
     Comments insert(CommentsModel model);
     Comments update(CommentsModel model);
     void deleteById(String id);

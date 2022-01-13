@@ -1,0 +1,117 @@
+#main{
+    min-height: 150vh;
+    width: 100%;
+}
+
+#welcome-title{
+    background-image: url('../../assets/welcome.jpg');
+    width: 100%;
+    height: 60%;
+    background-size: cover;
+    background-position: center;
+}
+
+#sub-div{
+    width: 100%;
+    height: 50%;
+    min-height: 15vh;
+    background-color: #FFF;
+    color: #000;
+}
+
+h1{
+    color: #FFF;
+    font-size: 60px;
+}
+
+h2{
+    margin: 10px 0px;
+    font-size: 35px;
+    color: #ed5e06;
+    font-weight: bold;
+}
+
+p{
+    font-size: 18px;
+}
+
+mat-icon{
+    font-size: 25px;
+    color: #ed5e06;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    font-size: 22px;
+}
+
+ul li::before {
+    content: "\2022";
+    color: #ed5e06;
+    font-weight: bold;
+    font-size: 25px;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+
+#browse-link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    background-color: transparent;
+    border: 3px solid white;
+}
+
+#browse-link:hover{
+    color: black;
+    background-color: white;
+    border: 3px solid white;
+    transition: 0.3;
+}
+
+#icon-text{
+    font-size: 20px;
+}
+
+#middle1{
+    width: 60%;
+    height: 100%;
+    padding: 30px 50px;
+}
+
+#middle2{
+    width: 40%;
+    height: 100%;
+    background-image: url('../../assets/building.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#about{
+    height: 40%;
+}
+
+#combine{
+    padding-top: 30px;
+    width: 100%;
+}
+
+#history{
+    height: 50%;
+}
+#hours{
+    height: 50%;
+    /* padding-right: 200px; */
+}
+
+#building{
+    width: 80%;
+    height: 80%;
+}

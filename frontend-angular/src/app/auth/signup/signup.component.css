@@ -1,0 +1,20 @@
+section{
+    min-height: 100vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(../../../assets/register.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+form{
+    width: 30%;
+    background-color: #f3f3f3;
+    padding: 40px 70px;
+    /* border-radius: 20px 50px; */
+    box-shadow: 1px 1px #d6d6d6;
+    opacity: 0.96;
+    margin: 40px 0px;
+}
+
+mat-form-field {
+    width: 80%;
+}

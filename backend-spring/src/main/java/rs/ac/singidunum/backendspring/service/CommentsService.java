@@ -18,8 +18,8 @@ public class CommentsService implements ICommentsService {
     private AutoMapperService autoMapperService;
 
     @Override
-    public List<Comments> findAllByExhibitsId(String exhibitsId){
-        return commentsRepository.findAllByExhibitsId(exhibitsId);
+    public List<Comments> findAllByExhibitId(String exhibitId){
+        return commentsRepository.findAllByExhibitId(exhibitId);
     }
 
     @Override

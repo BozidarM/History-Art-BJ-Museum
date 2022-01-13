@@ -7,6 +7,6 @@ import rs.ac.singidunum.backendspring.entity.Comments;
 import java.util.List;
 
 public interface ICommentsRepository extends MongoRepository<Comments, String> {
-    List<Comments> findAllByExhibitsId(String candiesId);
+    List<Comments> findAllByExhibitId(String exhibitId);
     Comments findCommentsById(String id);
 }
