@@ -1,9 +1,9 @@
 <div fxFlex fxLayout="column">
     <div fxFlex fxLayout="row">
         <div class="sideFilter">
-            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px" >
-                <div fxLayout="row" fxLayoutAlign="space-around center" id="plannerIcon" *ngIf="username != null">
-                    <mat-icon matBadge="{{plannerNumber}}" matBadgeColor="primary"  class="material-icons-outlined" routerLink="/planner">
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px">
+                <div fxLayout="row" fxLayoutAlign="space-between center" id="plannerIcon" *ngIf="username != null" matBadge="{{plannerNumber}}" matBadgeColor="primary" routerLink="/planner">
+                    <mat-icon class="material-icons-outlined">
                         event
                     </mat-icon>
                     <p> Planner</p>
@@ -87,7 +87,7 @@
         <div class="main" fxFlex fxLayout="column" fxLayoutAlign="center center"  >
             <section fxFlex fxLayout="row wrap" fxLayoutAlign="space-around center" id="main_section" >
                 <mat-card fxFlex="400px" *ngFor="let exhibit of data | paginate: {itemsPerPage:10,currentPage:p}">
-                    <img mat-card-image src="{{exhibit.image}}" alt="Photo" width="200px" height="400px">
+                    <img mat-card-image src="{{exhibit.image}}" alt="Photo" width="200px" height="400px" style="object-fit: contain;">
 
                     <mat-card-title fxLayoutAlign="center">
                         {{exhibit.title}}

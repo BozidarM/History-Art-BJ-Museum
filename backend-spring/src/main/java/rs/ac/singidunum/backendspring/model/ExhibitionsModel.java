@@ -14,6 +14,8 @@ public class ExhibitionsModel {
     private List<Object> items;
     private LocalDate orderedAt;
     private String status;
+    private String type;
+    private String dateVisit;
     private List<Integer> stars;
     private int rating;
 }

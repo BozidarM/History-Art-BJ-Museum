@@ -1,0 +1,56 @@
+#reservations{
+    background-color: #f3f3f3;
+    width: 100%;
+    min-height: 90vh;
+    padding: 20px 0px;
+}
+
+#reservation{
+    width: 95%;
+    box-shadow: 1px 1px 2px 2px #d6d6d6;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+
+#reservation-details{
+    width: 100%;
+    border-bottom: 1px solid #d6d6d6;
+    padding-bottom: 20px;
+}
+
+#resrvation-items{
+    width: 100%;
+}
+
+h4{
+    color: #ed5e06;
+}
+
+p{
+    font-size: 18px;
+    margin: 0px
+}
+
+#table-div{
+    width: 95%;
+}
+
+mat-table{
+    width: 90%;
+    border-radius: 20px 50px;
+    height: 30vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+mat-table img{
+    margin: 10px 0px
+}
+
+mat-form-field{
+    width: 90%;
+    font-size: 20px;
+}

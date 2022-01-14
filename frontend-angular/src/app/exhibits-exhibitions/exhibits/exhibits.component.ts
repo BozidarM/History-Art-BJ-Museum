@@ -49,7 +49,7 @@ export class ExhibitsComponent implements OnInit {
   ListRatings: number[] = [1, 2, 3, 4, 5];
 
   ngOnInit(): void {
-    this.plannerNumber =localStorage.getItem("cartNumber");
+    this.plannerNumber =localStorage.getItem("plannerNumber");
     this.username = localStorage.getItem("username");
     this.findAll();
   }

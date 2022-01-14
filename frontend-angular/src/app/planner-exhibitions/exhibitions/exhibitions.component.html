@@ -1,1 +1,72 @@
-<p>exhibitions works!</p>
+<div id="reservations" fxLayout="column" fxLayoutAlign="start center">
+    <div id="reservation" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="10px" *ngFor="let reservation of exhibitionsSource.data">
+        <div id="reservation-details" fxLayout="row" fxLayoutAlign="space-around center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Username:</h4>
+                <p>{{reservation.username}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Total Price:</h4>
+                <p>{{reservation.price}} €</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Tour Time:</h4>
+                <p>{{reservation.tourTime}} min</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Reserved At:</h4>
+                <p>{{reservation.orderedAt}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Date to visit:</h4>
+                <p>{{reservation.dateVisit | date: "mediumDate"}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Status:</h4>
+                <p>{{reservation.status}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <button mat-raised-button (click)="completeOrder(reservation.id)" color="accent">Finish</button>
+                <!-- <button mat-raised-button (click)="updateOrder(order.id, order.city, order.address, order.payment)" color="accent">Update</button> -->
+                <button mat-raised-button (click)="cancelOrder(reservation.id, reservation.items)" color="warn">Cancel</button>
+            </div>
+        </div>
+      
+        <div id="resrvation-items" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <h4>Items:</h4>
+            <div id="table-div" fxLayoutAlign = "center center">
+                <mat-table [dataSource]="reservation.items" matSort>
+                    <ng-container matColumnDef="image">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+                        <mat-cell *matCellDef="let element"><img src="{{ element.image }}" width="80px" height="80px"></mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="title">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="price">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{ element.price }} €</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="time">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{ element.time }} min</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="rating">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
+                        <mat-cell *matCellDef="let element"><star-rating fxFlex
+                            [value]="element.rating"
+                            [totalstars]="5"
+                            checkedcolor="#ffd740"
+                            uncheckedcolor="gray"
+                            size="25px"
+                            readonly="true"
+                            ></star-rating></mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+    </div>
+</div>
+

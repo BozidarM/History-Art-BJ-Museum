@@ -25,6 +25,10 @@ public class Exhibitions {
     private LocalDate orderedAt;
     @Field("status")
     private String status;
+    @Field("type")
+    private String type;
+    @Field("dateVisit")
+    private String dateVisit;
     @Field("stars")
     private List<Integer> stars;
     @Field("rating")

@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RatingModule } from 'ng-starrating';
 
 import { UsersService } from './services/users.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -59,7 +60,8 @@ import { ExhibitsComponent } from './exhibits-exhibitions/exhibits/exhibits.comp
     FlexLayoutModule,
     NgbModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RatingModule
   ],
   providers: [UsersService, ExhibitsService, ExhibitionsService, AuthenticationService],
   bootstrap: [AppComponent],

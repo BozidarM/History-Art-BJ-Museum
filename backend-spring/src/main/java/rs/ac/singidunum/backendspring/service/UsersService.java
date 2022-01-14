@@ -70,6 +70,9 @@ public class UsersService implements IUsersService{
         }
         user.setAddress(model.getAddress());
         user.setCity(model.getCity());
+        user.setPhone(model.getPhone());
+        user.setBirthday(model.getBirthday());
+        user.setFavorites(model.getFavorites());
 
         this.usersRepository.save(user);
 

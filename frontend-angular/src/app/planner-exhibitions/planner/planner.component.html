@@ -1,1 +1,68 @@
-<p>planner works!</p>
+<div fxFlex fxLayoutAlign = "center center" id="planner" fxLayoutGap="60px">
+    <div id="table-div" fxLayoutAlign = "center center">
+        <mat-table [dataSource]="exhibitsSource" matSort>
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+                <mat-cell *matCellDef="let element"><img src="{{ element.image }}" width="80px" height="80px"></mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element.price }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{ element.time }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="rating">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Stars</mat-header-cell>
+                <mat-cell *matCellDef="let element"><star-rating fxFlex
+                    [value]="element.rating"
+                    [totalstars]="5"
+                    checkedcolor="#ffd740"
+                    uncheckedcolor="gray"
+                    size="25px"
+                    readonly="true"
+                    ></star-rating></mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>   
+                <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" (click)="deleteFromCart(element.id)">Delete</button> </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center" id="confirmation">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2>Total Price:</h2>
+            <h1>{{total_price}} €</h1>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2>Tour Time:</h2>
+            <h1>{{total_time}} min</h1>
+        </div>
+        <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px"
+        #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-form-field color="primary">
+            <input matInput placeholder="Choose date for visit:" [matDatepicker]="picker" ngModel name="dateVisit" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+            <p style="color: seagreen;">{{message}}</p>
+
+            <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid" id="confirmBtn">Reserve</button>
+    
+            <!-- <mat-label style="color:red">{{ errorMessage }}</mat-label> -->
+        </form>
+    </div>
+</div>

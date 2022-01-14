@@ -1,0 +1,42 @@
+section{
+    min-height: 100vh;
+    background-color: #f3f3f3;
+}
+
+form{
+    background-color: white;
+    width: 50%;
+    padding: 40px 70px;
+    border-radius: 20px 50px;
+    box-shadow: 1px 1px 2px 2px #d6d6d6;
+    margin-bottom: 40px;
+}
+
+mat-form-field {
+    width: 80%;
+}
+
+#hello-message{
+    background-color: white;
+    width: 50%;
+    padding: 40px 70px;
+    border-radius: 20px 50px;
+    box-shadow: 1px 1px 2px 2px #d6d6d6;
+    margin-top: 40px;
+}
+
+#hello-message h1{
+    color: #ed5e06;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#hello-message p{
+    font-size: 20px;
+}
+
+button{
+    background-color: #ed5e06;
+    color: #ffffff;
+    font-size: 18px;
+}

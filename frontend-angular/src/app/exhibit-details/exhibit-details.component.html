@@ -1,1 +1,71 @@
-<p>exhibit-details works!</p>
+<div fxFlex fxLayout="column">
+<div fxFlex fxLayoutAlign="center center" fxLayout="column">
+    <div fxFlex fxLayout="row wrap" fxLayoutAlign="center" class="product-wrapper">
+        <div fxFlex fxLayoutAlign="center center" fxLayout="column" id="img-stars">
+            <h1>{{data.title}}</h1>
+
+            <img src="{{data.image}}" alt="Photo" width="550px" height="550px" style="object-fit: contain;">
+
+            <!-- <ngb-rating [(rate)]="currentRate" max="5" readonly="true"></ngb-rating> -->
+            <star-rating fxFlex
+                        [value]="data.rating"
+                        [totalstars]="5"
+                        checkedcolor="#ffd740"
+                        uncheckedcolor="gray"
+                        size="50px"
+                        readonly="true"
+                        ></star-rating>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="center center" id="details">
+            <div fxFlex fxLayout="column" fxLayoutAlign="center center" id="price-box" fxLayoutGap="20px">
+                <div fxLayout="row" fxLayoutAlign="space-between center" id="plannerIcon" *ngIf="username != null" matBadge="{{plannerNumber}}" matBadgeColor="primary" routerLink="/planner">
+                    <mat-icon class="material-icons-outlined">
+                        event
+                    </mat-icon>
+                    <p> Planner</p>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <h2 style="color: #ed5e06;">Price:</h2> <h2>{{data.price}} €</h2>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <h2 style="color: #ed5e06;">Time:</h2> <h2>{{data.tourTime}} min</h2>
+                </div>
+                <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px"
+                #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Add to planner</button>
+                </form>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <p class="titles">Culture: </p>
+                <p>{{data.culture}} </p>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <p class="titles">Century: </p>
+                <p>{{data.century}}</p>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <p class="titles">Classification: </p>
+                <p>{{data.classification}}</p>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <p class="titles">Period: </p>
+                <p>{{data.period}}</p>
+            </div>
+            <div fxFlex fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <p class="titles">Description: </p>
+                <p id="desc">{{data.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="comments-wrapper" fxLayout="column" fxLayoutAlign="center center">
+        <h3>Comments:</h3>
+        <div class="comments" *ngFor="let comment of comments" >
+            <div class="comment">
+                <p>Username: {{comment.username}}</p>
+                <p>{{comment.content}}</p>
+                <p>Posted at: {{comment.postedAt}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -30,6 +30,7 @@ mat-card-title{
 #plannerIcon p{
     margin: 5px;
     font-size: 25px;
+    padding-left: 20px;
 }
 
 mat-icon {
