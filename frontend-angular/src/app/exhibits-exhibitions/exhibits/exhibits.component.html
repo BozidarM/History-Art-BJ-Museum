@@ -6,7 +6,7 @@
                     <mat-icon class="material-icons-outlined">
                         event
                     </mat-icon>
-                    <p> Planner</p>
+                    <p>Planner</p>
                 </div>
 
                 <mat-form-field color='primary'>
@@ -99,6 +99,17 @@
 
                     <mat-card-content fxLayoutAlign="center">
                     <h3>Time: {{exhibit.tourTime}} min</h3>
+                    </mat-card-content>
+
+                    <mat-card-content fxLayoutAlign="center">
+                    <star-rating fxFlex fxLayoutAlign="center"
+                            [value]="exhibit.rating"
+                            [totalstars]="5"
+                            checkedcolor="#ffd740"
+                            uncheckedcolor="gray"
+                            size="25px"
+                            readonly="true"
+                            ></star-rating>
                     </mat-card-content>
 
                     <mat-card-actions fxLayoutAlign="center">

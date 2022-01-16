@@ -6,6 +6,7 @@ import rs.ac.singidunum.backendspring.entity.Exhibits;
 import rs.ac.singidunum.backendspring.model.ExhibitsModel;
 import rs.ac.singidunum.backendspring.repository.IExhibitsRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,13 +38,23 @@ public class ExhibitsService implements IExhibitsService{
         this.exhibitsRepository.save(exhibit);
 
         double average = exhibit.getStars().stream().mapToInt(val -> val).average().orElse(0.0);
-        int intValue = (int) average;
+        int intValue = (int) Math.round(average);
 
         exhibit.setRating(intValue);
 
         this.exhibitsRepository.save(exhibit);
 
         return autoMapperService.map(model, Exhibits.class);
+    }
+
+    public List<Exhibits> findAllById(List<String> ids){
+        List<Exhibits> listToSend = new ArrayList<>();
+        for (String id : ids)
+        {
+           Exhibits exhibit = exhibitsRepository.findExhibitById(id);
+           listToSend.add(exhibit);
+        }
+        return listToSend;
     }
 }
 

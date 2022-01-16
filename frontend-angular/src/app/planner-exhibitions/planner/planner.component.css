@@ -47,3 +47,6 @@ mat-form-field{
     font-size: 20px;
 }
 
+mat-cell{
+    cursor: pointer;
+}

@@ -1,1 +1,77 @@
-<p>exhibitions-history works!</p>
+<div id="tours" fxLayout="column" fxLayoutAlign="start center">
+    <div id="tour" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="10px" *ngFor="let tour of exhibitionsSource.data">
+        <div id="tour-details" fxLayout="row" fxLayoutAlign="space-around center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Username:</h4>
+                <p>{{tour.username}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Total Price:</h4>
+                <p>{{tour.price}} €</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Tour Time:</h4>
+                <p>{{tour.tourTime}} min</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Reserved At:</h4>
+                <p>{{tour.orderedAt}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Date to visit:</h4>
+                <p>{{tour.dateVisit | date: "mediumDate"}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h4>Status:</h4>
+                <p>{{tour.status}}</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <button mat-raised-button (click)="deleteOrder(tour.id)" color="warn">Delete Order</button>
+            </div>
+        </div>
+      
+        <div id="tour-items" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <h4>Items:</h4>
+            <div id="table-div" fxLayoutAlign = "center center">
+                <mat-table [dataSource]="tour.items" matSort>
+                    <ng-container matColumnDef="image">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><img src="{{ element.image }}" width="80px" height="80px" style="object-fit: contain;"></mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="title">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.title }}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="price">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.price }} €</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="time">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.time }} min</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="rating">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><star-rating fxFlex
+                            [value]="element.rating"
+                            [totalstars]="5"
+                            checkedcolor="#ffd740"
+                            uncheckedcolor="gray"
+                            size="25px"
+                            readonly="true"
+                            ></star-rating></mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>   
+                        <mat-cell *matCellDef="let element"> 
+                            <button mat-raised-button color="accent" (click)="rateAndComment(element.id, tour.username)" *ngIf="tour.status == 'completed'">Rate and Comment</button> 
+                            <p style="font-size: 15px" *ngIf="tour.status == 'canceled'">Only compeleted tours can be rated.</p>
+                        </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+    </div>
+</div>
+

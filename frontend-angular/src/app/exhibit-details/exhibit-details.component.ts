@@ -30,47 +30,6 @@ export class ExhibitDetailsComponent implements OnInit {
     this.findAllCommentsByExhibitId(this.id);
   }
 
-  onSubmit(form: NgForm){
-    if (localStorage.getItem("logedin") == "true"){
-      var lc = this.allStorage().filter(function(exhibit){
-        return exhibit.startsWith("exhibit") ;
-      });
-      var ids = [];
-      lc.forEach(function(element){
-        element = element.substring(element.indexOf("=") + 1);
-        var getId = JSON.parse(element)
-        ids.push(getId.id)
-      });
-
-      if(!ids.includes(this.data.id)){
-        var plannerNumber: number = +localStorage.getItem("plannerNumber");
-        var incrementPlannerNumber = plannerNumber++;
-
-        if (++incrementPlannerNumber == parseInt(localStorage.key(parseInt(localStorage.getItem("exhibit" + incrementPlannerNumber))).substring(7))){
-          
-          localStorage.setItem("plannerNumber", ""+incrementPlannerNumber);
-          localStorage.setItem("exhibit" + ++incrementPlannerNumber,  JSON.stringify(this.data));
-        }else{
-          localStorage.setItem("exhibit" + incrementPlannerNumber,  JSON.stringify(this.data));
-          localStorage.setItem("plannerNumber", ""+incrementPlannerNumber);
-        }
-
-        this._snackBar.open("Successfuly added to planner!","",{duration: 3000});
-
-        this.plannerNumber =localStorage.getItem("plannerNumber");
-
-        this.findExhibitById(this.id);
-      }
-      else{
-        this._snackBar.open("This exhibit is already in planner!","",{duration: 3000});
-      }
-    }else{
-      this.router.navigate(['/login'])
-    }
-
-  }
-
-
   public findExhibitById(id: string): any {
     return this.exhibitsService.findExhibitById(id).subscribe(value => { this.data = value });
   }

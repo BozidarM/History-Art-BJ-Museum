@@ -5,12 +5,12 @@
     </div>
 
     <div fxFlex fxLayoutAlign="end" fxLayoutGap="25px">
-        <a routerLink="/collection">Collection</a>
-        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/users">Profile</a>
-        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/planner">Cart</a>
-        <a *ngIf="!(loggedIn$ | async) as loggedIn" routerLink="/signup">SignUp</a>
-        <a *ngIf="!(loggedIn$ | async) as loggedIn" routerLink="/login">LogIn</a>
-        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/login">Logout</a>
+        <a routerLink="/collection" routerLinkActive="toolBar">Collection</a>
+        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/users" routerLinkActive="toolBar">Profile</a>
+        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/planner" routerLinkActive="toolBar">Planner</a> 
+        <a *ngIf="!(loggedIn$ | async) as loggedIn" routerLink="/signup" routerLinkActive="toolBar">SignUp</a>
+        <a *ngIf="!(loggedIn$ | async) as loggedIn" routerLink="/login" routerLinkActive="toolBar">LogIn</a>
+        <a *ngIf="(loggedIn$ | async) as loggedIn" routerLink="/login" routerLinkActive="toolBar">Logout</a>
     </div>
 
   </mat-toolbar>

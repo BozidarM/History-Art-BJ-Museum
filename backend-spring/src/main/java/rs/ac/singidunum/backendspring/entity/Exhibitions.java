@@ -13,6 +13,12 @@ import java.util.List;
 public class Exhibitions {
     @Id
     private String id;
+    @Field("title")
+    private String title;
+    @Field("image")
+    private String image;
+    @Field("category")
+    private String category;
     @Field("username")
     private String username;
     @Field("price")

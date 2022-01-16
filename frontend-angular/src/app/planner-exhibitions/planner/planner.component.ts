@@ -7,8 +7,9 @@ import { ExhibitsService } from '../../services/exhibits.service';
 
 export interface ExhibitsPlanner {
   id: number,
-  image: string;
+  databaseId: string;
   title: string;
+  image: string;
   price: any;
   time: any;
   rating: any;
@@ -26,9 +27,10 @@ export class PlannerComponent implements OnInit {
   total_price: number;
   total_time: number;
 
-  EXHIBIT_DATA: ExhibitsPlanner[] = [];
 
-  exhibitsSource = new MatTableDataSource<ExhibitsPlanner>();
+  EXHIBITION_DATA: ExhibitsPlanner[] = [];
+
+  exhibitionsSource = new MatTableDataSource<ExhibitsPlanner>();
   displayedColumns = ["id", "image", "title", "price", "time", "rating", "action"];
 
   plannerNumber: number = +localStorage.getItem("plannerNumber");
@@ -39,7 +41,7 @@ export class PlannerComponent implements OnInit {
 
     this.makeArray();
 
-    this.exhibitsSource.data = this.EXHIBIT_DATA;
+    this.exhibitionsSource.data = this.EXHIBITION_DATA;
 
     this.items = this.getItems();
 
@@ -59,11 +61,11 @@ export class PlannerComponent implements OnInit {
 
       localStorage.setItem("username", username)
       localStorage.setItem("logedin", logedIn)
-      localStorage.setItem("cartNumber", "0")
+      localStorage.setItem("plannerNumber", "0")
 
       this.makeArray();
 
-      this.exhibitsSource.data = this.EXHIBIT_DATA;
+      this.exhibitionsSource.data = this.EXHIBITION_DATA;
 
       this.items = this.getItems();
 
@@ -84,13 +86,13 @@ export class PlannerComponent implements OnInit {
       // let stringId = JSON.parse(localStorage.getItem("exhibit" + id)).id;
 
 
-      localStorage.removeItem("exhibit" + id);
+      localStorage.removeItem("exhibition" + id);
 
       this.makeArray();
 
       this.items = this.getItems();
 
-      this.exhibitsSource.data = this.EXHIBIT_DATA;
+      this.exhibitionsSource.data = this.EXHIBITION_DATA;
 
       this.total_price =  this.totalPrice();
       this.total_time =  this.totalTime();
@@ -114,7 +116,7 @@ export class PlannerComponent implements OnInit {
   totalPrice(){
     var totalPrice = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibit")){
+      if(localStorage.key(i).includes("exhibition")){
         totalPrice += JSON.parse(localStorage.getItem(localStorage.key(i))).price;
       }
     }
@@ -124,7 +126,7 @@ export class PlannerComponent implements OnInit {
   totalTime(){
     var totalTime = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibit")){
+      if(localStorage.key(i).includes("exhibition")){
         totalTime += JSON.parse(localStorage.getItem(localStorage.key(i))).tourTime;
       }
     }
@@ -134,10 +136,10 @@ export class PlannerComponent implements OnInit {
   getItems(){
     var items = [];
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibit")){
+      if(localStorage.key(i).includes("exhibition")){
         items.push({id: JSON.parse(localStorage.getItem(localStorage.key(i))).id, 
-                    image: JSON.parse(localStorage.getItem(localStorage.key(i))).image, 
                     title: JSON.parse(localStorage.getItem(localStorage.key(i))).title, 
+                    image: JSON.parse(localStorage.getItem(localStorage.key(i))).image,
                     price: JSON.parse(localStorage.getItem(localStorage.key(i))).price,
                     time: JSON.parse(localStorage.getItem(localStorage.key(i))).tourTime,
                     rating: JSON.parse(localStorage.getItem(localStorage.key(i))).rating})
@@ -147,12 +149,13 @@ export class PlannerComponent implements OnInit {
   }
 
   makeArray(){
-    this.EXHIBIT_DATA.length = 0;
+    this.EXHIBITION_DATA.length = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibit")){
-        this.EXHIBIT_DATA.push({id: parseInt(localStorage.key(i).substring(7)), 
-                                image: JSON.parse(localStorage.getItem(localStorage.key(i))).image, 
+      if(localStorage.key(i).includes("exhibition")){
+        this.EXHIBITION_DATA.push({id: parseInt(localStorage.key(i).substring(10)),
+                                databaseId: JSON.parse(localStorage.getItem(localStorage.key(i))).id, 
                                 title: JSON.parse(localStorage.getItem(localStorage.key(i))).title, 
+                                image: JSON.parse(localStorage.getItem(localStorage.key(i))).image,
                                 price: JSON.parse(localStorage.getItem(localStorage.key(i))).price,
                                 time: JSON.parse(localStorage.getItem(localStorage.key(i))).tourTime,
                                 rating: JSON.parse(localStorage.getItem(localStorage.key(i))).rating})

@@ -28,3 +28,12 @@ h2{
 .mat-toolbar-row, .mat-toolbar-single-row {
     height: 80px;
 }
+
+.toolBar{
+    color: #ed5e06;
+    border-bottom: 2px solid #ed5e06;
+}
+
+.toolBar:hover{
+    color: #ed5e06;
+}

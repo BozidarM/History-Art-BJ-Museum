@@ -8,6 +8,9 @@ import java.util.List;
 @Data
 public class ExhibitionsModel {
     private String id;
+    private String title;
+    private String image;
+    private String category;
     private String username;
     private int price;
     private int tourTime;

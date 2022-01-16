@@ -41,4 +41,16 @@ public class ExhibitionsController {
     public void deleteById(@PathVariable("id") String id){
         this.exhibitionsService.deleteById(id);
     }
+
+    @GetMapping("all-default")
+    @CrossOrigin(origins = "*")
+    public List<Exhibitions> findAllByType(){
+        return exhibitionsService.findAllByType();
+    }
+
+    @GetMapping("exhibition/{id}")
+    @CrossOrigin(origins = "*")
+    public Exhibitions findExhibitionsById(@PathVariable("id") String id){
+        return exhibitionsService.findExhibitionsById(id);
+    }
 }

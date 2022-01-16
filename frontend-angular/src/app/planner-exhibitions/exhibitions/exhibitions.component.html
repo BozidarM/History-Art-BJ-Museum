@@ -26,8 +26,8 @@
                 <p>{{reservation.status}}</p>
             </div>
             <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
-                <button mat-raised-button (click)="completeOrder(reservation.id)" color="accent">Finish</button>
-                <!-- <button mat-raised-button (click)="updateOrder(order.id, order.city, order.address, order.payment)" color="accent">Update</button> -->
+                <button mat-raised-button (click)="completeOrder(reservation.id)" color="primary">Finish</button>
+                <button mat-raised-button (click)="updateOrder(reservation.id, reservation.timeVisit)" color="primary">Update</button>
                 <button mat-raised-button (click)="cancelOrder(reservation.id, reservation.items)" color="warn">Cancel</button>
             </div>
         </div>
@@ -38,23 +38,23 @@
                 <mat-table [dataSource]="reservation.items" matSort>
                     <ng-container matColumnDef="image">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-                        <mat-cell *matCellDef="let element"><img src="{{ element.image }}" width="80px" height="80px"></mat-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><img src="{{ element.image }}" width="80px" height="80px" style="object-fit: contain;"></mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="title">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-                        <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.title }}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="price">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                        <mat-cell *matCellDef="let element">{{ element.price }} €</mat-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.price }} €</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="time">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
-                        <mat-cell *matCellDef="let element">{{ element.time }} min</mat-cell>
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.time }} min</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="rating">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
-                        <mat-cell *matCellDef="let element"><star-rating fxFlex
+                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><star-rating fxFlex
                             [value]="element.rating"
                             [totalstars]="5"
                             checkedcolor="#ffd740"

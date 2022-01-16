@@ -1,29 +1,29 @@
 <div fxFlex fxLayoutAlign = "center center" id="planner" fxLayoutGap="60px">
     <div id="table-div" fxLayoutAlign = "center center">
-        <mat-table [dataSource]="exhibitsSource" matSort>
+        <mat-table [dataSource]="exhibitionsSource" matSort>
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}">{{ element.id }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="image">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-                <mat-cell *matCellDef="let element"><img src="{{ element.image }}" width="80px" height="80px"></mat-cell>
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}"><img src="{{ element.image }}" width="80px" height="80px" style="object-fit: contain;"></mat-cell>
             </ng-container>
             <ng-container matColumnDef="title">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}">{{ element.title }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="price">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{ element.price }}</mat-cell>
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}">{{ element.price }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="time">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{ element.time }}</mat-cell>
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}">{{ element.time }}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="rating">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Stars</mat-header-cell>
-                <mat-cell *matCellDef="let element"><star-rating fxFlex
+                <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.databaseId}}"><star-rating fxFlex
                     [value]="element.rating"
                     [totalstars]="5"
                     checkedcolor="#ffd740"

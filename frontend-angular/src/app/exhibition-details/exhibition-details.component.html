@@ -1,0 +1,69 @@
+<div class="main" fxFlex fxLayout="column" fxLayoutAlign="space-around center">  
+    <div class="planner-css" fxLayout="row" fxLayoutAlign="space-around center" id="plannerIcon" *ngIf="username != null" matBadge="{{plannerNumber}}" matBadgeColor="primary" routerLink="/planner">
+        <mat-icon class="material-icons-outlined">
+            event
+        </mat-icon>
+        <p>Planner</p>
+    </div>
+    <div id="tours" fxLayout="column" fxLayoutAlign="start center">
+        <div id="tour" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+            <div id="tour-details" fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Title:</h4>
+                    <p>{{data.title}}</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Category:</h4>
+                    <p>{{data.category}}</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Total Price:</h4>
+                    <p>{{data.price}} €</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Tour Time:</h4>
+                    <p>{{data.tourTime}} min</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                    <button mat-raised-button (click)="AddExhibitionPlanner(data)" color="primary">Add to Planner</button>
+                </div>
+            </div>
+        
+            <div id="tour-items" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <h4>Items:</h4>
+                <div id="table-div" fxLayoutAlign = "center center">
+                    <mat-table [dataSource]="databaseItems" matSort>
+                        <ng-container matColumnDef="image">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+                            <mat-cell *matCellDef="let element" routerLink="/exhibits/exhibit/{{element.id}}"><img src="{{ element.image }}" width="120px" height="120px" style="object-fit: contain;"></mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="title">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                            <mat-cell *matCellDef="let element" routerLink="/exhibits/exhibit/{{element.id}}">{{ element.title }}</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="price">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+                            <mat-cell *matCellDef="let element" routerLink="/exhibits/exhibit/{{element.id}}">{{ element.price }} €</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="time">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+                            <mat-cell *matCellDef="let element" routerLink="/exhibits/exhibit/{{element.id}}">{{ element.tourTime }} min</mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="rating">
+                            <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
+                            <mat-cell *matCellDef="let element" routerLink="/exhibits/exhibit/{{element.id}}"><star-rating fxFlex
+                                [value]="element.rating"
+                                [totalstars]="5"
+                                checkedcolor="#ffd740"
+                                uncheckedcolor="gray"
+                                size="30px"
+                                readonly="true"
+                                ></star-rating></mat-cell>
+                        </ng-container>
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                </div>
+        </div>
+    </div>
+</div>

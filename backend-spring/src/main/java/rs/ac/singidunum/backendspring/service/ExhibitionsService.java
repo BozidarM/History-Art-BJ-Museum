@@ -42,6 +42,8 @@ public class ExhibitionsService implements IExhibitionsService {
     public Exhibitions update(ExhibitionsModel model){
         Exhibitions exhibition = exhibitionsRepository.findExhibitionsById(model.getId());
 
+        exhibition.setDateVisit(model.getDateVisit());
+
         this.exhibitionsRepository.save(exhibition);
 
         return autoMapperService.map(model, Exhibitions.class);
@@ -61,5 +63,15 @@ public class ExhibitionsService implements IExhibitionsService {
     @Override
     public void deleteById(String id){
         this.exhibitionsRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Exhibitions> findAllByType(){
+        return this.exhibitionsRepository.findAllByType();
+    }
+
+    @Override
+    public Exhibitions findExhibitionsById(String id){
+        return this.exhibitionsRepository.findExhibitionsById(id);
     }
 }

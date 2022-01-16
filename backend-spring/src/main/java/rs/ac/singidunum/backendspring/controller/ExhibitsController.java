@@ -45,4 +45,10 @@ public class ExhibitsController {
     public Exhibits updateStars(@RequestBody ExhibitsModel model){
         return exhibitsService.updateStars(model);
     }
+
+    @PostMapping("all-ids")
+    @CrossOrigin(origins = "*")
+    public List<Exhibits> findAllById(@RequestBody List<String> ids){
+        return this.exhibitsService.findAllById(ids);
+    }
 }

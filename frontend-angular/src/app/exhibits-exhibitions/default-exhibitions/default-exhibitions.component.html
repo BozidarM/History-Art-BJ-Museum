@@ -1,0 +1,101 @@
+<div class="main" fxFlex fxLayout="row">  
+    <div class="sideFilter">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px">
+            <div fxLayout="row" fxLayoutAlign="space-between center" id="plannerIcon" *ngIf="username != null" matBadge="{{plannerNumber}}" matBadgeColor="primary" routerLink="/planner">
+                <mat-icon class="material-icons-outlined">
+                    event
+                </mat-icon>
+                <p>Planner</p>
+            </div>
+
+            <mat-form-field color='primary'>
+                <input type="text" ngModel matInput placeholder="Search" name="search"
+                search #searchInput="ngModel" (keyup) = "search(searchInput)">
+            </mat-form-field>
+
+            <div class="check">
+                <h4>Price: {{priceValue}} €</h4>
+                <mat-slider color="accent" (change)="onFilterChange($event, 'price')"
+                        thumbLabel
+                        step="1"
+                        min="0"
+                        max="100"
+                        [(ngModel)]="priceValue"
+                        aria-label="units"
+                        value>
+                </mat-slider>
+            </div>
+
+            <div class="check">
+                <h4>Tour Time: {{timeValue}} min</h4>
+                <mat-slider color="accent" (change)="onFilterChange($event, 'time')"
+                        thumbLabel
+                        step="1"
+                        min="0"
+                        max="300"
+                        [(ngModel)]="timeValue"
+                        aria-label="units"
+                        value>
+                </mat-slider>
+            </div>
+
+            <mat-form-field appearance="fill" id="sort">
+                <mat-label>Sort By</mat-label>
+                <mat-select (selectionChange)="onFilterChange($event, 'sort')">
+                    <mat-option value="">None</mat-option>
+                    <mat-option value="title-asc">Title ASC</mat-option>
+                    <mat-option value="title-dsc">Title DESC</mat-option>
+                    <mat-option value="price-asc">Price ASC</mat-option>
+                    <mat-option value="price-dsc">Price DESC</mat-option>
+                    <mat-option value="time-asc">Time ASC</mat-option>
+                    <mat-option value="time-dsc">Time DESC</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select [formControl]="categories" multiple (selectionChange)="onFilterChange($event, 'category')">
+                <mat-option *ngFor="let category of ListCategories" [value]="category">{{category}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div id="tours" fxLayout="column" fxLayoutAlign="start center">
+        <div id="tour" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="10px" *ngFor="let tour of data">
+            <div id="tour-details" fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Title:</h4>
+                    <p>{{tour.title}}</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Category:</h4>
+                    <p>{{tour.category}}</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Total Price:</h4>
+                    <p>{{tour.price}} €</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <h4>Tour Time:</h4>
+                    <p>{{tour.tourTime}} min</p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                    <button mat-raised-button (click)="AddExhibitionPlanner(tour)" color="primary">Add to Planner</button>
+                    <button mat-raised-button color="accent" (click)="showOneExhibition(tour.id)">Details</button>
+                </div>
+            </div>
+        
+            <div id="tour-description" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <h4>Description:</h4>
+                <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center center">
+                    <img src="{{tour.image}}" alt="Photo" width="300px" height="300px" style="object-fit: contain;">
+                    <p>Nulla eget lobortis orci. Proin id varius nibh, in consequat massa. Aenean gravida neque at tortor placerat, sed finibus mi ultricies.
+                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer pellentesque sed orci egestas congue. Duis in porta erat. Vivamus 
+                    tristique sapien a lacinia aliquam. Ut leo nibh, tincidunt id congue a, vestibulum at nulla. Proin faucibus tortor sit amet ex tempus lobortis. 
+                    Mauris a cursus nibh, aliquet condimentum ipsum. Ut elementum vulputate metus at tempor. Quisque non dictum leo, ac vestibulum turpis. Vestibulum 
+                    ante ipsum primis in faucibus orci luctus. Click on details for more infomration.
+                    </p>
+                </div>
+        </div>
+    </div>
+</div>  

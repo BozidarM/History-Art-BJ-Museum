@@ -8,6 +8,7 @@ import { ExhibitDetailsComponent } from "./exhibit-details/exhibit-details.compo
 import { ExhibitsExhibitionsComponent } from "./exhibits-exhibitions/exhibits-exhibitions.component";
 import { UsersComponent } from "./users/users.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
+import { ExhibitionDetailsComponent } from "./exhibition-details/exhibition-details.component";
 
 const rute: Routes = [
     {path: '', component: WelcomeComponent},
@@ -16,6 +17,7 @@ const rute: Routes = [
     {path: 'collection', component: ExhibitsExhibitionsComponent},
     {path: 'planner', component: PlannerExhibitionsComponent},
     {path: 'exhibits/exhibit/:id', component: ExhibitDetailsComponent},
+    {path: 'exhibitions/exhibition/:id', component: ExhibitionDetailsComponent},
     {path: 'users', component: UsersComponent}
 ]
 

@@ -12,4 +12,6 @@ public interface IExhibitionsService {
     Exhibitions insert(ExhibitionsModel model);
     Exhibitions update(ExhibitionsModel model);
     Exhibitions changeStatus(ExhibitionsModel model);
+    List<Exhibitions> findAllByType();
+    Exhibitions findExhibitionsById(String id);
 }

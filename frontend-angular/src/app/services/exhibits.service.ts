@@ -61,6 +61,10 @@ export class ExhibitsService {
     return this.http.post<any>("http://localhost:8080/exhibits/update-stars", model);
   }
 
+  public findAllById(ids: any) :  Observable<HttpResponse<any>>{
+    return this.http.post<any>("http://localhost:8080/exhibits/all-ids", ids);
+  }
+
   showExhibit(id: String): any {
     this.router.navigate(['exhibits/exhibit/' + id]);
   }

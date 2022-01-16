@@ -11,5 +11,7 @@ public interface IExhibitionsRepository extends MongoRepository<Exhibitions, Str
     List<Exhibitions> findAllPendingExhibitionsByUsername(String username);
     @Query(value = "{ $or: [{'status':'completed'}, {'status':'canceled'}], 'username': {$regex : ?0, $options: 'i'}}}")
     List<Exhibitions> findAllHistoryExhibitionsByUsername(String username);
+    @Query(value = "{'type':'default'}")
+    List<Exhibitions> findAllByType();
     Exhibitions findExhibitionsById(String id);
 }

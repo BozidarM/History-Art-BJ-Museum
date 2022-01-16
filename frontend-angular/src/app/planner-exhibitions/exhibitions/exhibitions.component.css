@@ -30,7 +30,7 @@ h4{
 }
 
 p{
-    font-size: 18px;
+    font-size: 20px;
     margin: 0px
 }
 
@@ -46,11 +46,11 @@ mat-table{
     overflow-x: hidden;
 }
 
-mat-table img{
-    margin: 10px 0px
-}
-
 mat-form-field{
     width: 90%;
-    font-size: 20px;
+    font-size: 40px;
+}
+
+mat-cell{
+    cursor: pointer;
 }

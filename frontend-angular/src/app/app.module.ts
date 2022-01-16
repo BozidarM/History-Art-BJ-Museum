@@ -31,6 +31,8 @@ import { RateCommentComponent } from './users/rate-comment/rate-comment.componen
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ExhibitsExhibitionsComponent } from './exhibits-exhibitions/exhibits-exhibitions.component';
 import { ExhibitsComponent } from './exhibits-exhibitions/exhibits/exhibits.component';
+import { DefaultExhibitionsComponent } from './exhibits-exhibitions/default-exhibitions/default-exhibitions.component';
+import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-details.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ExhibitsComponent } from './exhibits-exhibitions/exhibits/exhibits.comp
     RateCommentComponent,
     WelcomeComponent,
     ExhibitsExhibitionsComponent,
-    ExhibitsComponent
+    ExhibitsComponent,
+    DefaultExhibitionsComponent,
+    ExhibitionDetailsComponent
   ],
   imports: [
     BrowserModule,

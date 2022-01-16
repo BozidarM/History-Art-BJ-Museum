@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 export interface Exhibitions {
   username: string;
@@ -15,9 +16,7 @@ export interface Exhibitions {
 
 export interface UpdateExhibition {
   id: string;
-  city: string;
-  address:string;
-  payment: string;
+  dateVisit: string;
 }
 
 export interface ExhibitionsStatus {
@@ -33,7 +32,7 @@ export interface ExhibitionsStatus {
 
 export class ExhibitionsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router:Router) { }
 
   public findAllByUsername(username: String) : Observable<HttpResponse<any>>{
     return this.http.get<any>("http://localhost:8080/exhibitions/all/" + username);
@@ -52,10 +51,22 @@ export class ExhibitionsService {
   }
 
   public update(model: UpdateExhibition) : Observable<HttpResponse<any>>{
-    return this.http.post<any>("http://localhost:8080/exhibition/update", model);
+    return this.http.post<any>("http://localhost:8080/exhibitions/update", model);
   }
 
   public deleteById(id: String) : Observable<HttpResponse<any>>{
     return this.http.delete<any>("http://localhost:8080/exhibitions/delete/" + id);
+  }
+
+  public findAllByType() : Observable<HttpResponse<any>>{
+    return this.http.get<any>("http://localhost:8080/exhibitions/all-default");
+  }
+
+  public findExhibitionsById(id: string) : Observable<HttpResponse<any>>{
+    return this.http.get<any>("http://localhost:8080/exhibitions/exhibition/" + id);
+  }
+
+  showExhibition(id: String): any {
+    this.router.navigate(['exhibitions/exhibition/' + id]);
   }
 }

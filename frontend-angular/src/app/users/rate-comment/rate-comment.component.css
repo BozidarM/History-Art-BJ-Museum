@@ -1,0 +1,23 @@
+mat-dialog-content{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+mat-table{
+    width: 100%;
+}
+
+.mat-column-image,
+.mat-column-title{
+  max-width: 20%;
+}
+
+.mat-column-rating{
+    width: 40%;
+}
+
+.mat-column-action{
+    width: 40%;
+}
+

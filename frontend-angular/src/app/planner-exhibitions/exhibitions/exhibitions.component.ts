@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { UpdateExhibitionComponent } from '../update-exhibition/update-exhibition.component';
 
 export interface ItemsExhibition {
-  image: string;
   title: string;
   price: any;
   time: any;
@@ -56,19 +55,19 @@ export class ExhibitionsComponent implements OnInit {
     }); 
   }
 
-  updateOrder(id: any, city: string, address: string, payment: string){
-    // this.dialogOpen = true;
+  updateOrder(id: any, dateVisit: string){
+    this.dialogOpen = true;
 
-    //     const orderDialog = this.dialog.open(UpdateOrderComponent, {
-    //       disableClose: true,
-    //       width: "60vw",
-    //       data: { orderId: id, city:city, address:address, payment: payment }
-    //     });
+        const orderDialog = this.dialog.open(UpdateExhibitionComponent, {
+          disableClose: true,
+          width: "60vw",
+          data: { reservationId: id, dateVisit: dateVisit }
+        });
 
-    //     orderDialog.afterClosed().subscribe(result => {
-    //       this.dialogOpen = false;
-    //       this.findAllByUsername(localStorage.getItem("username")).subscribe(value => { this.orderSource.data = value; });
-    //     })
+        orderDialog.afterClosed().subscribe(result => {
+          this.dialogOpen = false;
+          this.findAllByUsername(localStorage.getItem("username")).subscribe(value => { this.exhibitionsSource.data = value; });
+        })
   }
 
   public changeStatusComplete(id){
