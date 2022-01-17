@@ -49,7 +49,7 @@ public class ExhibitsService implements IExhibitsService{
 
         this.exhibitsRepository.save(exhibit);
 
-        if(!model.getId().equals("no")) {
+        if(!model.getExhibitionId().equals("no")) {
             Exhibitions exhibition = exhibitionsRepository.findExhibitionsById(model.getExhibitionId());
 
             List<Integer> exhibitionStars = exhibition.getStars();
