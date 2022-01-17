@@ -2,8 +2,10 @@ package rs.ac.singidunum.backendspring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rs.ac.singidunum.backendspring.entity.Exhibitions;
 import rs.ac.singidunum.backendspring.entity.Exhibits;
 import rs.ac.singidunum.backendspring.model.ExhibitsModel;
+import rs.ac.singidunum.backendspring.repository.IExhibitionsRepository;
 import rs.ac.singidunum.backendspring.repository.IExhibitsRepository;
 
 import java.util.ArrayList;
@@ -13,6 +15,9 @@ import java.util.List;
 public class ExhibitsService implements IExhibitsService{
     @Autowired
     private IExhibitsRepository exhibitsRepository;
+
+    @Autowired
+    private IExhibitionsRepository exhibitionsRepository;
 
     @Autowired
     private AutoMapperService autoMapperService;
@@ -43,6 +48,18 @@ public class ExhibitsService implements IExhibitsService{
         exhibit.setRating(intValue);
 
         this.exhibitsRepository.save(exhibit);
+
+        if(!model.getId().equals("no")) {
+            Exhibitions exhibition = exhibitionsRepository.findExhibitionsById(model.getExhibitionId());
+
+            List<Integer> exhibitionStars = exhibition.getStars();
+            int exhibitRating = exhibit.getRating();
+
+            exhibitionStars.add(exhibitRating);
+            exhibition.setStars(exhibitionStars);
+
+            this.exhibitionsRepository.save(exhibition);
+        }
 
         return autoMapperService.map(model, Exhibits.class);
     }

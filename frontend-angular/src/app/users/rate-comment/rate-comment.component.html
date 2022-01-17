@@ -3,35 +3,6 @@
 </button>
 
 <mat-dialog-content fxLayout="column" fxLayoutAlign="center center">
-   <!-- <div class="items-wrapper" fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let item of databaseItems">
-        <div class="items" fxLayout="row">
-            <div class="item-details" fxLayoutAlign="space-around center" fxLayout="column">
-                <p>{{item.title}}</p>
-                <img src="{{item.image}}" alt="Photo" width="60px" height="60px" style="object-fit: contain;">
-            </div>
-            <form fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px" #f="ngForm" (ngSubmit)="onSubmit(f)">
-                <mat-card  fxLayoutAlign="center center">
-                    <star-rating fxFlex fxLayout="row"
-                                    [value]="item.rating"
-                                    [totalstars]="5"
-                                    checkedcolor="#ffd740"
-                                    uncheckedcolor="gray"
-                                    size="20px"
-                                    readonly="flase"
-                                    (rate)="onRate($event)"
-                                    ></star-rating>
-                </mat-card>
-
-                <mat-card>
-                    <mat-form-field  color="accent">
-                        <textarea rows="3" type="text" ngModel matInput placeholder="Enter comment..." name="comment"></textarea>
-                    </mat-form-field> 
-                </mat-card>
-
-                <button type="submit" color="primary" mat-raised-button>Confirm</button>
-            </form>
-        </div>
-    </div> -->
     <mat-table [dataSource]="databaseItems" matSort>
         <ng-container matColumnDef="image">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>

@@ -74,4 +74,17 @@ public class ExhibitionsService implements IExhibitionsService {
     public Exhibitions findExhibitionsById(String id){
         return this.exhibitionsRepository.findExhibitionsById(id);
     }
+
+//    public int updateRating(String exhibitionId){
+//        Exhibitions exhibition = exhibitionsRepository.findExhibitionsById(exhibitionId);
+//
+//        List<Object> items = exhibition.getItems();
+//        for (Object item : items)
+//        {
+//            for(const id in item)
+//            Exhibits exhibit = exhibitsRepository.findExhibitById(item[id]);
+//
+//        }
+//        return
+//    }
 }

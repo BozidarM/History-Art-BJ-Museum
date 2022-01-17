@@ -19,15 +19,55 @@ export class ExhibitDetailsComponent implements OnInit {
   comments: any;
   // currentRate: number;
   //this.currentRate = this.data.rating}
-  plannerNumber: string;  
+  customPlannerNumber: string;  
   username: string;
 
   ngOnInit(): void {
-    this.plannerNumber =localStorage.getItem("plannerNumber");
+    this.customPlannerNumber =localStorage.getItem("customPlannerNumber");
     this.username  = localStorage.getItem("username");
     this.route.params.subscribe(value => { this.id = value["id"] });
     this.findExhibitById(this.id);
     this.findAllCommentsByExhibitId(this.id);
+  }
+
+  onSubmit(form: NgForm){
+    if (localStorage.getItem("logedin") == "true"){
+      var lc = this.allStorage().filter(function(exhibit){
+        return exhibit.startsWith("product") ;
+      });
+
+      var ids = [];
+      lc.forEach(function(element){
+        element = element.substring(element.indexOf("=") + 1);
+        var getId = JSON.parse(element)
+        ids.push(getId.id)
+      });
+
+      if(!ids.includes(this.data.id)){
+        var plannerNumber: number = +localStorage.getItem("customPlannerNumber");
+        var incrementPlannerNumber = plannerNumber++;
+
+        if (++incrementPlannerNumber == parseInt(localStorage.key(parseInt(localStorage.getItem("product" + incrementPlannerNumber))).substring(7))){
+          
+          localStorage.setItem("customPlannerNumber", ""+incrementPlannerNumber);
+          localStorage.setItem("product" + ++incrementPlannerNumber,  JSON.stringify(this.data));
+        }else{
+          localStorage.setItem("product" + incrementPlannerNumber,  JSON.stringify(this.data));
+          localStorage.setItem("customPlannerNumber", ""+incrementPlannerNumber);
+        }
+
+        this._snackBar.open("Successfuly added to planner!","",{duration: 3000});
+
+        this.customPlannerNumber =localStorage.getItem("customPlannerNumber");
+
+        // this.findExhibitById(this.id);
+      }
+      else{
+        this._snackBar.open("This exhibit is already in planner!","",{duration: 3000});
+      }
+    }else{
+      this.router.navigate(['/login'])
+    }
   }
 
   public findExhibitById(id: string): any {

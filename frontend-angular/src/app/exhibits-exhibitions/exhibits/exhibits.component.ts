@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { ExhibitsService } from '../../services/exhibits.service';
+import { UsersService } from '../../services/users.service';
 import { sortBy } from 'sort-by-typescript';
 import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-exhibits',
@@ -12,16 +14,22 @@ import { FormControl } from '@angular/forms';
 })
 export class ExhibitsComponent implements OnInit {
 
-  constructor(private exhibitsService: ExhibitsService, private router: Router) { }
+  constructor(private exhibitsService: ExhibitsService, private userService: UsersService, private _snackBar: MatSnackBar, private router: Router) { }
 
   data: any;
   copyData: any;
   p: number = 1;
   value: any;
-  plannerNumber: string;  
+  customPlannerNumber: string;  
   rating: any;
   categories: any;
   username: string;
+  user: any;
+
+  priceValue: number = 0;
+  timeValue: number = 0;
+  searchValue: string = '';
+  sortValue: string;
 
   cultures = new FormControl();
   ListCultures: string[] = ['Roman', 'Egyptian', 'Greek', 'Chinese', 'Byzantine'];
@@ -42,165 +50,191 @@ export class ExhibitsComponent implements OnInit {
                           "Late Period, Dynasty 26", "Middle Kingdom", "Ming dynasty, 1368-1644", "Northern Wei, 386-534", "Qing dynasty, 1644-1911", 
                           "Roman Imperial period", "Roman Imperial period, Middle", "Roman period", "Zhou dynasty, Western Zhou period, c. 1050-771 BCE"];
 
-  times = new FormControl();
-  ListTimes: number[] = [10, 20, 30];
-
   ratings = new FormControl();
   ListRatings: number[] = [1, 2, 3, 4, 5];
 
+  favorites = new FormControl();
+  ListFavorites: any[];
+
   ngOnInit(): void {
-    this.plannerNumber =localStorage.getItem("plannerNumber");
+    this.customPlannerNumber =localStorage.getItem("customPlannerNumber");
     this.username = localStorage.getItem("username");
+    this.findByUsername(this.username).subscribe(value => { this.user = value;  this.ListFavorites = this.user.favorites});
     this.findAll();
   }
 
-  onSortChange(sortType: any){
+  AddExhibitPlanner(exhibit: any){
+    if (localStorage.getItem("logedin") == "true"){
+      var lc = this.allStorage().filter(function(exhibit){
+        return exhibit.startsWith("product") ;
+      });
+
+      var ids = [];
+      lc.forEach(function(element){
+        element = element.substring(element.indexOf("=") + 1);
+        var getId = JSON.parse(element)
+        ids.push(getId.id)
+      });
+
+      if(!ids.includes(exhibit.id)){
+        var plannerNumber: number = +localStorage.getItem("customPlannerNumber");
+        var incrementPlannerNumber = plannerNumber++;
+
+        if (++incrementPlannerNumber == parseInt(localStorage.key(parseInt(localStorage.getItem("product" + incrementPlannerNumber))).substring(7))){
+          
+          localStorage.setItem("customPlannerNumber", ""+incrementPlannerNumber);
+          localStorage.setItem("product" + ++incrementPlannerNumber,  JSON.stringify(exhibit));
+        }else{
+          localStorage.setItem("product" + incrementPlannerNumber,  JSON.stringify(exhibit));
+          localStorage.setItem("customPlannerNumber", ""+incrementPlannerNumber);
+        }
+
+        this._snackBar.open("Successfuly added to planner!","",{duration: 3000});
+
+        this.customPlannerNumber =localStorage.getItem("customPlannerNumber");
+
+        // this.findExhibitById(this.id);
+      }
+      else{
+        this._snackBar.open("This exhibit is already in planner!","",{duration: 3000});
+      }
+    }else{
+      this.router.navigate(['/login'])
+    }
+  }
+
+  onFilterChange(){
 
     //SORT
-    if (sortType.value == ""){
-      this.findAll();
+    let arr = this.copyData;
+    
+    let search = this.searchValue.trim().toLowerCase();
+
+    if(search != ""){
+      arr = arr.filter((product) => {
+        return product.title.toLowerCase().includes(search);
+      });
     }
-    if (sortType.value == "title-asc"){
+    
+    if (this.sortValue == "title-asc"){
       
-      this.data = this.data.sort(sortBy("title"));
+      arr = arr.sort(sortBy("title"));
     }
-    if (sortType.value == "title-dsc"){
+    if (this.sortValue == "title-dsc"){
 
-      this.data = this.data.sort(sortBy("-title"));
+      arr = arr.sort(sortBy("-title"));
     }
-    if (sortType.value == "price-asc"){
+    if (this.sortValue == "price-asc"){
 
-      this.data = this.data.sort(sortBy("price"));
+      arr = arr.sort(sortBy("price"));
     }
-    if (sortType.value == "price-dsc"){
+    if (this.sortValue == "price-dsc"){
 
-      this.data = this.data.sort(sortBy("-price"));
+      arr = arr.sort(sortBy("-price"));
     }
-    if (sortType.value == "time-asc"){
+    if (this.sortValue == "time-asc"){
 
-      this.data = this.data.sort(sortBy("tourTime"));
+      arr = arr.sort(sortBy("tourTime"));
     }
-    if (sortType.value == "time-dsc"){
+    if (this.sortValue == "time-dsc"){
 
-      this.data = this.data.sort(sortBy("-tourTime"));
+      arr = arr.sort(sortBy("-tourTime"));
     }
     
-  }
-
-  onPriceChange(value: any){
-
-    if (value.value > 0){
-
-      this.data = this.copyData.filter(function(exhibit){
-        return exhibit.price <= value.value;
-      })
-
-    }else if(value.value == 0){
-      this.findAll();
+    if (this.priceValue > 0){
+        arr = arr.filter((exhibition) =>{
+            return exhibition.price <= this.priceValue;
+          })
     }
-  }
 
-  onCultureChange(){
+    if (this.timeValue > 0){
+        arr = arr.filter((exhibition) =>{
+          return exhibition.tourTime <= this.timeValue;
+        })
+    }
+
+    var favorites = this.favorites.value;
+    if(favorites != undefined){
+      if(favorites.length > 0){
+        arr = arr.filter(function(item) {
+          return favorites.includes(item.culture); 
+        })
+      }
+    }
+
     var cultures = this.cultures.value;
-    if(cultures.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return cultures.includes(item.culture); 
-      })
+    if(cultures != undefined){
+      if(cultures.length > 0){
+        arr = arr.filter(function(item) {
+          return cultures.includes(item.culture); 
+        })
+      }
     }
-    else
-    {
-      this.findAll();
-    }
-  }
 
-  onCenturyChange(){
     var centuries = this.centuries.value;
-    if(centuries.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return centuries.includes(item.century); 
-      })
+    if(centuries != undefined){
+      if(centuries.length > 0){
+        arr = arr.filter(function(item) {
+          return centuries.includes(item.century); 
+        })
+      }
     }
-    else
-    {
-      this.findAll();
-    }
-  }
 
-  onClassificationChange(){
     var classifications = this.classifications.value;
-    if(classifications.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return classifications.includes(item.classification); 
-      })
+    if(classifications != undefined){
+      if(classifications.length > 0){
+        arr = arr.filter(function(item) {
+          return classifications.includes(item.classification); 
+        })
+      }
     }
-    else
-    {
-      this.findAll();
-    }
-  }
 
-  onPeriodChange(){
     var periods = this.periods.value;
-    if(periods.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return periods.includes(item.period); 
-      })
+    if(periods != undefined){
+      if(periods.length > 0){
+        arr = arr.filter(function(item) {
+          return periods.includes(item.period); 
+        })
+      }
     }
-    else
-    {
-      this.findAll();
-    }
-  }
 
-  onTimeChange(){
-    var times = this.times.value;
-    if(times.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return times.includes(item.tourTime); 
-      })
-    }
-    else
-    {
-      this.findAll();
-    }
-    
-  }
-
-  onRatingChange(){
     var ratings = this.ratings.value;
-    if(ratings.length > 0){
-      this.data = this.copyData.filter(function(item) {
-        return ratings.includes(item.rating); 
-      })
+    if(ratings != undefined){
+      if(ratings.length > 0){
+        arr = arr.filter(function(item) {
+          return ratings.includes(item.rating); 
+        })
+      }
     }
-    else
-    {
-      this.findAll();
-    }
+    this.data = arr;
     
   }
+
+  
 
   public findAll(): any {
     this.exhibitsService.findAll().subscribe(value => { this.data = value; this.copyData = value; });
-  }
-
-  search(search: any){
-
-    if (search.value == ""){
-      this.findAll();
-    }
-    else{
-      this.exhibitsService.findAllByName(search.value.trim()).subscribe(value => { this.data = value; });
-    }
   }
 
   public showOneExibit(id: String): any {
     this.exhibitsService.showExhibit(id);
   }
 
-  public filterCategories(arr2, arr3, type)
-  {
-    
+  public findByUsername(username: string): any{
+    return this.userService.findByUsername(username);
+  }
+
+  public allStorage() {
+
+    var archive = [],
+        keys = Object.keys(localStorage),
+        i = 0, key;
+
+    for (; key = keys[i]; i++) {
+        archive.push( key + '=' + localStorage.getItem(key));
+    }
+
+    return archive;
   }
 
 }

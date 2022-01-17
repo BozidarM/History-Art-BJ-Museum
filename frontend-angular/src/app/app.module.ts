@@ -33,6 +33,8 @@ import { ExhibitsExhibitionsComponent } from './exhibits-exhibitions/exhibits-ex
 import { ExhibitsComponent } from './exhibits-exhibitions/exhibits/exhibits.component';
 import { DefaultExhibitionsComponent } from './exhibits-exhibitions/default-exhibitions/default-exhibitions.component';
 import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-details.component';
+import { CustomPlannerComponent } from './planner-exhibitions/custom-planner/custom-planner.component';
+import { CustomRateCommentComponent } from './users/custom-rate-comment/custom-rate-comment.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ExhibitionDetailsComponent } from './exhibition-details/exhibition-deta
     ExhibitsExhibitionsComponent,
     ExhibitsComponent,
     DefaultExhibitionsComponent,
-    ExhibitionDetailsComponent
+    ExhibitionDetailsComponent,
+    CustomPlannerComponent,
+    CustomRateCommentComponent
   ],
   imports: [
     BrowserModule,

@@ -44,6 +44,9 @@ export class ExhibitionDetailsComponent implements OnInit {
     // this.findAllByType().subscribe(value => { this.exhibitionsSource.data = value;});
     this.route.params.subscribe(value => { this.id = value["id"] });
     this.findExhibitionsById(this.id).subscribe(value => { this.data = value;
+      if(this.data.stars.length > 0){
+        this.data.rating = this.exhibitionsService.average(this.data.stars)
+      }
       var items = this.data.items;
       for(let i of items){
         this.ids.push(i.id)

@@ -1,0 +1,52 @@
+#planner{
+    height: 90vh;
+}
+
+#confirmation{
+    background-color: #f3f3f3;
+    padding: 20px 0px;
+    width: 25%;
+    border-radius: 20px 50px;
+    box-shadow: 1px 1px 2px 2px#d6d6d6;
+}
+
+#confirmBtn{
+    width: 100%;
+    font-size: 30px;
+    padding: 20px 30px;
+}
+
+#confirmation h2{
+    color: #ed5e06;
+    font-size: 30px;
+}
+
+#table-div{
+    background-color: #f3f3f3;
+    padding: 20px 0px;
+    width: 65%;
+    border-radius: 20px 50px;
+    box-shadow: 1px 1px 2px 2px#d6d6d6;;
+    min-height: 80vh;
+}
+
+mat-table{
+    width: 90%;
+    border-radius: 20px 50px;
+    height: 70vh;
+    overflow-y: auto;
+}
+
+mat-table img{
+    margin: 10px 0px
+}
+
+mat-form-field{
+    margin-top: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+
+mat-cell{
+    cursor: pointer;
+}

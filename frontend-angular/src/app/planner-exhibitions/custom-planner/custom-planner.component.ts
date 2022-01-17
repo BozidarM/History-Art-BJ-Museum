@@ -5,7 +5,7 @@ import { Exhibitions, ExhibitionsService } from '../../services/exhibitions.serv
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExhibitsService } from '../../services/exhibits.service';
 
-export interface ExhibitsPlanner {
+export interface ExhibitsCustomPlanner {
   id: number,
   databaseId: string;
   title: string;
@@ -16,11 +16,11 @@ export interface ExhibitsPlanner {
 }
 
 @Component({
-  selector: 'app-planner',
-  templateUrl: './planner.component.html',
-  styleUrls: ['./planner.component.css']
+  selector: 'app-custom-planner',
+  templateUrl: './custom-planner.component.html',
+  styleUrls: ['./custom-planner.component.css']
 })
-export class PlannerComponent implements OnInit {
+export class CustomPlannerComponent implements OnInit {
 
   message: any;
   items: any;
@@ -28,12 +28,12 @@ export class PlannerComponent implements OnInit {
   total_time: number;
 
 
-  EXHIBITION_DATA: ExhibitsPlanner[] = [];
+  EXHIBIT_DATA: ExhibitsCustomPlanner[] = [];
 
-  exhibitionsSource = new MatTableDataSource<ExhibitsPlanner>();
+  exhibitsSource = new MatTableDataSource<ExhibitsCustomPlanner>();
   displayedColumns = ["id", "image", "title", "price", "time", "rating", "action"];
 
-  plannerNumber: number = +localStorage.getItem("plannerNumber");
+  customPlannerNumber: number = +localStorage.getItem("customPlannerNumber");
 
   constructor(private exhibitionsService: ExhibitionsService,private exhibitsService: ExhibitsService , private _snackBar: MatSnackBar) { }
 
@@ -41,7 +41,7 @@ export class PlannerComponent implements OnInit {
 
     this.makeArray();
 
-    this.exhibitionsSource.data = this.EXHIBITION_DATA;
+    this.exhibitsSource.data = this.EXHIBIT_DATA;
 
     this.items = this.getItems();
 
@@ -54,13 +54,13 @@ export class PlannerComponent implements OnInit {
      
       this.insertExhibition(form.value.dateVisit)
 
-      var customPlannerNumber = localStorage.getItem("customPlannerNumber")
+      var plannerNumber = localStorage.getItem("plannerNumber")
       var username = localStorage.getItem("username")
       var logedIn = localStorage.getItem("logedin")
 
       let array = new Map();
       for(let i=0; i < localStorage.length; i++){
-        if(localStorage.key(i).includes("product")){
+        if(localStorage.key(i).includes("exhibition")){
           array.set(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
         }
       }
@@ -69,8 +69,8 @@ export class PlannerComponent implements OnInit {
 
       localStorage.setItem("username", username)
       localStorage.setItem("logedin", logedIn)
-      localStorage.setItem("plannerNumber", "0")
-      localStorage.setItem("customPlannerNumber", ""+customPlannerNumber)
+      localStorage.setItem("customPlannerNumber", "0")
+      localStorage.setItem("plannerNumber", ""+plannerNumber)
 
       for (let [key, value] of array) {
         localStorage.setItem(key, value);
@@ -78,7 +78,7 @@ export class PlannerComponent implements OnInit {
 
       this.makeArray();
 
-      this.exhibitionsSource.data = this.EXHIBITION_DATA;
+      this.exhibitsSource.data = this.EXHIBIT_DATA;
 
       this.items = this.getItems();
 
@@ -93,19 +93,19 @@ export class PlannerComponent implements OnInit {
 
     if (localStorage.getItem("logedin") == "true"){
      
-      this.plannerNumber = this.plannerNumber - 1; 
-      localStorage.setItem("plannerNumber", ""+this.plannerNumber); 
+      this.customPlannerNumber = this.customPlannerNumber - 1; 
+      localStorage.setItem("customPlannerNumber", ""+this.customPlannerNumber); 
       
       // let stringId = JSON.parse(localStorage.getItem("exhibit" + id)).id;
 
 
-      localStorage.removeItem("exhibition" + id);
+      localStorage.removeItem("product" + id);
 
       this.makeArray();
 
       this.items = this.getItems();
 
-      this.exhibitionsSource.data = this.EXHIBITION_DATA;
+      this.exhibitsSource.data = this.EXHIBIT_DATA;
 
       this.total_price =  this.totalPrice();
       this.total_time =  this.totalTime();
@@ -120,7 +120,7 @@ export class PlannerComponent implements OnInit {
       "items": this.items,
       "orderedAt": new Date(),
       "status": "pending",
-      "type": "custom",
+      "type": "customExhibition",
       "dateVisit": form
     }
     this.exhibitionsService.insert(model).subscribe(value => { this._snackBar.open("Success, please go to reservations to finish your reservation.","",{duration: 7000}); });
@@ -129,7 +129,7 @@ export class PlannerComponent implements OnInit {
   totalPrice(){
     var totalPrice = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibition")){
+      if(localStorage.key(i).includes("product")){
         totalPrice += JSON.parse(localStorage.getItem(localStorage.key(i))).price;
       }
     }
@@ -139,7 +139,7 @@ export class PlannerComponent implements OnInit {
   totalTime(){
     var totalTime = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibition")){
+      if(localStorage.key(i).includes("product")){
         totalTime += JSON.parse(localStorage.getItem(localStorage.key(i))).tourTime;
       }
     }
@@ -149,7 +149,7 @@ export class PlannerComponent implements OnInit {
   getItems(){
     var items = [];
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibition")){
+      if(localStorage.key(i).includes("product")){
         items.push({id: JSON.parse(localStorage.getItem(localStorage.key(i))).id, 
                     title: JSON.parse(localStorage.getItem(localStorage.key(i))).title, 
                     image: JSON.parse(localStorage.getItem(localStorage.key(i))).image,
@@ -162,10 +162,10 @@ export class PlannerComponent implements OnInit {
   }
 
   makeArray(){
-    this.EXHIBITION_DATA.length = 0;
+    this.EXHIBIT_DATA.length = 0;
     for(let i=0; i < localStorage.length; i++){
-      if(localStorage.key(i).includes("exhibition")){
-        this.EXHIBITION_DATA.push({id: parseInt(localStorage.key(i).substring(10)),
+      if(localStorage.key(i).includes("product")){
+        this.EXHIBIT_DATA.push({id: parseInt(localStorage.key(i).substring(7)),
                                 databaseId: JSON.parse(localStorage.getItem(localStorage.key(i))).id, 
                                 title: JSON.parse(localStorage.getItem(localStorage.key(i))).title, 
                                 image: JSON.parse(localStorage.getItem(localStorage.key(i))).image,

@@ -18,4 +18,5 @@ public class ExhibitsModel {
     private int price;
     private List<Integer> stars;
     private int rating;
+    private String exhibitionId;
 }

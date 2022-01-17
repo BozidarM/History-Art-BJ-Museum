@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExhibitionsService, ExhibitionsStatus } from '../../services/exhibitions.service';
+import { UsersService } from '../../services/users.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExhibitsService } from '../../services/exhibits.service';
@@ -30,13 +31,22 @@ export class DefaultExhibitionsComponent implements OnInit {
   categories = new FormControl();
   ListCategories: string[] = ['Roman', 'Egyptian', 'Greek', 'Chinese', 'Byzantine'];
 
-  constructor(private exhibitionsService: ExhibitionsService, private exhibitsService: ExhibitsService, private _snackBar: MatSnackBar, private dialog: MatDialog, private route:ActivatedRoute, private router: Router) { }
+  favorites = new FormControl();
+  ListFavorites: any[];
+
+  constructor(private exhibitionsService: ExhibitionsService, private exhibitsService: ExhibitsService, private userService: UsersService, private _snackBar: MatSnackBar, private dialog: MatDialog, private route:ActivatedRoute, private router: Router) { }
 
   id: string = "";
   data: any;
   copyData: any;
-  priceValue: any;
-  timeValue: any;
+  user: any;
+
+  priceValue: number = 0;
+  timeValue: number = 0;
+  searchValue: any = "";
+  sortValue: any;
+  categoryArray: any = [];
+
   plannerNumber: string;  
   rating: any;
   username: string;
@@ -44,11 +54,9 @@ export class DefaultExhibitionsComponent implements OnInit {
   ngOnInit(): void {
     this.plannerNumber =localStorage.getItem("plannerNumber");
     this.username = localStorage.getItem("username");
-    // this.findAllByType().subscribe(value => { this.exhibitionsSource.data = value;});
+    this.findByUsername(this.username).subscribe(value => { this.user = value;  this.ListFavorites = this.user.favorites});
     this.findAllByType();
-
-    // console.log(this.exhibitionsSource.data);
-    
+    // console.log(this.exhibitionsSource.data)
   }
 
   public showOneExhibition(id: String): any {
@@ -105,150 +113,88 @@ export class DefaultExhibitionsComponent implements OnInit {
     }
   }
 
-  onFilterChange(event: any, type: string){
+  onFilterChange(){
 
-    console.log(event);
-    console.log(type);
+    // this.copyData = this.findAllByType()
 
-    if(event.value == '' || categories== [] || event.value == 0)
-    {
-      console.log('USOOO');
+    let arr = this.copyData;
+    console.log(this.searchValue);
+    
+    let search = this.searchValue.trim().toLowerCase();
+
+    if(search != ""){
+      arr = arr.filter((product) => {
+        return product.title.toLowerCase().includes(search);
+      });
+    }
+    
+    if (this.sortValue == "title-asc"){
       
-      var filtered_data = [];
+      arr = arr.sort(sortBy("title"));
+    }
+    if (this.sortValue == "title-dsc"){
 
-      this.data = this.findAllByType()
-      console.log(this.data);
-      
+      arr = arr.sort(sortBy("-title"));
+    }
+    if (this.sortValue == "price-asc"){
 
-      switch(type){
-        case 'sort':
-          if (event.value == ""){
-            this.copyData;
-          }
-          if (event.value == "title-asc"){
-            
-            this.copyData = this.data.sort(sortBy("title"));
-          }
-          if (event.value == "title-dsc"){
+      arr = arr.sort(sortBy("price"));
+    }
+    if (this.sortValue == "price-dsc"){
 
-            this.copyData = this.data.sort(sortBy("-title"));
-          }
-          if (event.value == "price-asc"){
+      arr = arr.sort(sortBy("-price"));
+    }
+    if (this.sortValue == "time-asc"){
 
-            this.copyData = this.data.sort(sortBy("price"));
-          }
-          if (event.value == "price-dsc"){
+      arr = arr.sort(sortBy("tourTime"));
+    }
+    if (this.sortValue == "time-dsc"){
 
-            this.copyData = this.data.sort(sortBy("-price"));
-          }
-          if (event.value == "time-asc"){
+      arr = arr.sort(sortBy("-tourTime"));
+    }
+    
+    if (this.priceValue > 0){
+        arr = arr.filter((exhibition) =>{
+            return exhibition.price <= this.priceValue;
+          })
+    }
 
-            this.copyData = this.data.sort(sortBy("tourTime"));
-          }
-          if (event.value == "time-dsc"){
+    if (this.timeValue > 0){
+        arr = arr.filter((exhibition) =>{
+          return exhibition.tourTime <= this.timeValue;
+        })
+    }
 
-            this.copyData = this.data.sort(sortBy("-tourTime"));
-          }
-          break;
-        case 'price':
-          if (event.value > 0){
-              this.copyData = this.copyData.filter(function(exhibition){
-                  return exhibition.price <= event.value;
-                })
-          }else if(event.value == 0){
-            this.copyData;
-          }
-          break;
-        case 'tour':
-          if (event.value > 0){
-              this.copyData = this.copyData.filter(function(exhibition){
-                return exhibition.tourTime <= event.value;
-              })
-          }else if(event.value == 0){
-            this.copyData;
-          }
-          break;
-        case 'category':
-            var categories = this.categories.value;
-            if(categories.length > 0){
-              this.copyData = this.copyData.filter(function(item) {
-                return categories.includes(item.category); 
-              })
-            }
-            else
-            {
-              this.copyData;
-            }
-            break;
-      }
-      this.data = this.copyData;
-    }else{
-      switch(type){
-        case 'sort':
-          if (event.value == ""){
-            this.copyData;
-          }
-          if (event.value == "title-asc"){
-            
-            this.copyData = this.data.sort(sortBy("title"));
-          }
-          if (event.value == "title-dsc"){
-
-            this.copyData = this.data.sort(sortBy("-title"));
-          }
-          if (event.value == "price-asc"){
-
-            this.copyData = this.data.sort(sortBy("price"));
-          }
-          if (event.value == "price-dsc"){
-
-            this.copyData = this.data.sort(sortBy("-price"));
-          }
-          if (event.value == "time-asc"){
-
-            this.copyData = this.data.sort(sortBy("tourTime"));
-          }
-          if (event.value == "time-dsc"){
-
-            this.copyData = this.data.sort(sortBy("-tourTime"));
-          }
-          break;
-        case 'price':
-          if (event.value > 0){
-              this.copyData = this.copyData.filter(function(exhibition){
-                  return exhibition.price <= event.value;
-                })
-          }else if(event.value == 0){
-            this.copyData;
-          }
-          break;
-        case 'tour':
-          if (event.value > 0){
-              this.copyData = this.copyData.filter(function(exhibition){
-                return exhibition.tourTime <= event.value;
-              })
-          }else if(event.value == 0){
-            this.copyData;
-          }
-          break;
-        case 'category':
-            var categories = this.categories.value;
-            if(categories.length > 0){
-              this.copyData = this.copyData.filter(function(item) {
-                return categories.includes(item.category); 
-              })
-            }
-            else
-            {
-              this.copyData;
-            }
-            break;
+    var favorites = this.favorites.value;
+    if(favorites != undefined){
+      if(favorites.length > 0){
+        arr = arr.filter(function(item) {
+          return favorites.includes(item.category); 
+        })
       }
     }
+
+    var categories = this.categories.value;
+    if(categories != undefined){
+      if(categories.length > 0){
+        arr = arr.filter(function(item) {
+          return categories.includes(item.category); 
+        })
+      }
+    }
+    this.data = arr;
   }
 
   public findAllByType(){
-    return this.exhibitionsService.findAllByType().subscribe(value => { this.data = value; this.copyData = value; });
+    return this.exhibitionsService.findAllByType().subscribe(value => { this.data = value; this.copyData = value;
+        for(let item of this.data)
+        {
+          if(item.stars.length > 0)
+          {
+            item.rating = this.exhibitionsService.average(item.stars);
+          }
+        } 
+     });
   }
 
   public allStorage() {
@@ -265,7 +211,11 @@ export class DefaultExhibitionsComponent implements OnInit {
   }
 
   public findExhibitionsById(id: string): any {
-    return this.exhibitionsService.findExhibitionsById(id).subscribe(value => { this.data = value });
+    return this.exhibitionsService.findExhibitionsById(id).subscribe(value => { this.data = value; });
+  }
+
+  public findByUsername(username: string): any{
+    return this.userService.findByUsername(username);
   }
 
 }

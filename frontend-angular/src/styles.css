@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; scroll-behavior: smooth; }
+
+
+df-messenger {
+--df-messenger-bot-message: #ff850b;
+--df-messenger-button-titlebar-color: #000000;
+--df-messenger-chat-background-color: #fafafa;
+--df-messenger-font-color: white;
+--df-messenger-send-icon: #ed5e06;
+--df-messenger-user-message: #ed5e06;
+}
+
+/*#ed5e06*/

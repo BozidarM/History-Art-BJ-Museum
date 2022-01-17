@@ -38,8 +38,6 @@ export class RateCommentComponent implements OnInit {
 
   onSubmit(form: NgForm, id){
 
-    console.log(this.currentRate)
-
     // if(!isNaN(this.currentRate)){
     //   console.log(this.currentRate)
     //   this.updateStars(this.data.exhibitId, this.currentRate);
@@ -59,10 +57,7 @@ export class RateCommentComponent implements OnInit {
    
       this.currentRate = $event.newValue
 
-      console.log(id);
-      console.log(this.currentRate);
-
-      this.updateStars(id, this.currentRate); 
+      this.updateStars(id, this.currentRate, this.data.elementId); 
   }
 
   public insertComment(exhibitId: string, username: string, content: string, date: Date){
@@ -75,10 +70,11 @@ export class RateCommentComponent implements OnInit {
     this.exhibitService.insertComment(model).subscribe(value => {});
   }
 
-  public updateStars(id: string, rating: number){
+  public updateStars(id: string, rating: number, exhibitionId: string){
     var model: UpdatingStars = {
       "id": id,
-      "rating": rating
+      "rating": rating,
+      "exhibitionId" : exhibitionId
     }
     this.exhibitService.updateStars(model).subscribe(value => {});
   }

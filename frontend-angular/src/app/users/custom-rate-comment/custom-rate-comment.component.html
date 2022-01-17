@@ -1,0 +1,29 @@
+<button mat-button [mat-dialog-close]="true">
+    <mat-icon matListIcon>close</mat-icon>
+</button>
+
+<mat-dialog-content fxLayout="column" fxLayoutAlign="center center">
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-card fxLayoutAlign="center center">
+             
+            <star-rating fxFlex fxLayout="row"
+                        [value]="currentRate"
+                        [totalstars]="5"
+                        checkedcolor="#ffd740"
+                        uncheckedcolor="gray"
+                        size="30px"
+                        readonly="flase"
+                        (rate)="onRate($event)"
+                        ></star-rating>
+
+        </mat-card>
+
+        <mat-card>
+            <mat-form-field  color="accent">
+                <textarea rows="8" type="text" ngModel matInput placeholder="Enter comment..." name="comment"></textarea>
+            </mat-form-field> 
+        </mat-card>
+
+        <button type="submit" color="accent" mat-raised-button>Confirm</button>
+    </form>
+</mat-dialog-content>

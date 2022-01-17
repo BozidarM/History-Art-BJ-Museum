@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("username", this.message.username.toString());
         localStorage.setItem("logedin", "true");
         localStorage.setItem("plannerNumber", "0");
-        localStorage.setItem("plannerExhibitionsNumber", "0");
+        localStorage.setItem("customPlannerNumber", "0");
         this.authenticationService.logIn();
         this.router.navigate(['/']);
       }

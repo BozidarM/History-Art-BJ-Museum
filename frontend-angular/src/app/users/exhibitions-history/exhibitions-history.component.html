@@ -36,35 +36,24 @@
                 <mat-table [dataSource]="tour.items" matSort>
                     <ng-container matColumnDef="image">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><img src="{{ element.image }}" width="80px" height="80px" style="object-fit: contain;"></mat-cell>
+                        <mat-cell *matCellDef="let element"><img src="{{ element.image }}" width="80px" height="80px" style="object-fit: contain;"></mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="title">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.title }}</mat-cell>
+                        <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="price">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.price }} €</mat-cell>
+                        <mat-cell *matCellDef="let element">{{ element.price }} €</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="time">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
-                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}">{{ element.time }} min</mat-cell>
-                    </ng-container>
-                    <ng-container matColumnDef="rating">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header>Rating</mat-header-cell>
-                        <mat-cell *matCellDef="let element" routerLink="/exhibitions/exhibition/{{element.id}}"><star-rating fxFlex
-                            [value]="element.rating"
-                            [totalstars]="5"
-                            checkedcolor="#ffd740"
-                            uncheckedcolor="gray"
-                            size="25px"
-                            readonly="true"
-                            ></star-rating></mat-cell>
+                        <mat-cell *matCellDef="let element">{{ element.time }} min</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="action">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>   
                         <mat-cell *matCellDef="let element"> 
-                            <button mat-raised-button color="accent" (click)="rateAndComment(element.id, tour.username)" *ngIf="tour.status == 'completed'">Rate and Comment</button> 
+                            <button mat-raised-button color="accent" (click)="rateAndComment(element.id, tour.username, tour.type)" *ngIf="tour.status == 'completed'">Rate and Comment</button> 
                             <p style="font-size: 15px" *ngIf="tour.status == 'canceled'">Only compeleted tours can be rated.</p>
                         </mat-cell>
                     </ng-container>

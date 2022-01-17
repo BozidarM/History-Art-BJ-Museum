@@ -3,7 +3,7 @@
         <mat-icon class="material-icons-outlined">
             event
         </mat-icon>
-        <p>Planner</p>
+        <p>Exhibition Planner</p>
     </div>
     <div id="tours" fxLayout="column" fxLayoutAlign="start center">
         <div id="tour" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="10px">
@@ -24,8 +24,18 @@
                     <h4>Tour Time:</h4>
                     <p>{{data.tourTime}} min</p>
                 </div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <star-rating fxFlex fxLayoutAlign="center"
+                            [value]="data.rating"
+                            [totalstars]="5"
+                            checkedcolor="#ffd740"
+                            uncheckedcolor="gray"
+                            size="50px"
+                            readonly="true"
+                            ></star-rating>
+                </div>
                 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
-                    <button mat-raised-button (click)="AddExhibitionPlanner(data)" color="primary">Add to Planner</button>
+                    <button mat-raised-button (click)="AddExhibitionPlanner(data)" color="primary">Add to Exhibition Planner</button>
                 </div>
             </div>
         

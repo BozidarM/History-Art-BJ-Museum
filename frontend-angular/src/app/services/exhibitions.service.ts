@@ -69,4 +69,8 @@ export class ExhibitionsService {
   showExhibition(id: String): any {
     this.router.navigate(['exhibitions/exhibition/' + id]);
   }
+
+  public average(nums: any) {
+    return nums.reduce((a, b) => (a + b)) / nums.length;
+  }
 }

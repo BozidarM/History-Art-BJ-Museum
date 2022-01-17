@@ -21,6 +21,7 @@ export interface Exhibits {
 export interface UpdatingStars {
   id: string;
   rating: number;
+  exhibitionId: string;
 }
 
 export interface Comment {
