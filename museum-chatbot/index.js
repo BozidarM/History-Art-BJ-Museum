@@ -43,8 +43,8 @@ app.post('/', express.json(), (req, res)=> {
           results.forEach(elem => {
             if( elem.title.toLowerCase().includes(searchValue) || elem.century.toLowerCase().includes(searchValue)
                || elem.period.toLowerCase().includes(searchValue) || elem.classification.toLowerCase().includes(searchValue) 
-               || elem.price.toLowerCase().includes(searchValue) || elem.tourTime.toLowerCase().includes(searchValue) 
-               || elem.rating.toLowerCase().includes(searchValue)){
+               || elem.price == searchValue || elem.tourTime == searchValue
+               || elem.rating == searchValue){
               payload.richContent.push(
                     [
                       {
