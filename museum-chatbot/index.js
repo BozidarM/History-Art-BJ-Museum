@@ -41,7 +41,8 @@ app.post('/', express.json(), (req, res)=> {
                         };
           const searchValue = agent.query.split(' ')[1].toLowerCase();
           results.forEach(elem => {
-            if(elem.title.toLowerCase().includes(searchValue)){
+            if( elem.title.toLowerCase().includes(searchValue) || elem.century.toLowerCase().includes(searchValue)
+               || elem.period.toLowerCase().includes(searchValue) || elem.classification.toLowerCase().includes(searchValue) ){
               payload.richContent.push(
                     [
                       {
