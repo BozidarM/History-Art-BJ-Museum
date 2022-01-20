@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "61e6bce548fdff2e5b3804a5"
+  },
+  "fullname": "janedoe1",
+  "email": "janedoe1@mail.com",
+  "username": "janedoe1",
+  "password": "janedoe1",
+  "city": "JD Hills 1",
+  "address": "JD Street 1",
+  "phone": "01012312312",
+  "birthday": "1996-01-30T23:00:00.000Z",
+  "favorites": [
+    "Egyptian",
+    "Chinese"
+  ],
+  "_class": "rs.ac.singidunum.backendspring.entity.Users"
+}]

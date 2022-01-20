@@ -1,0 +1,548 @@
+[{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4134"
+  },
+  "title": "Cinerarium with Human Remains",
+  "culture": "Roman",
+  "century": "1st century BCE-2nd century CE",
+  "classification": "Vessels",
+  "period": "Roman period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC103854_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 5,
+  "stars": [
+    4,
+    3,
+    3
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4137"
+  },
+  "title": "Spoon",
+  "culture": "Roman",
+  "century": "2nd-5th century CE",
+  "classification": "Tools and Equipment",
+  "period": "Roman Imperial period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:INV033155_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 5,
+  "stars": [
+    3,
+    2,
+    4,
+    2
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f413a"
+  },
+  "title": "Alexander the Great",
+  "culture": "Roman",
+  "century": "2nd-3rd century CE",
+  "classification": "Sculpture",
+  "period": "Roman Imperial period, Middle",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC250046_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 10,
+  "stars": [
+    5,
+    2,
+    1,
+    1
+  ],
+  "rating": 2,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f413d"
+  },
+  "title": "Youthful Hero or God",
+  "culture": "Roman",
+  "century": "1st-2nd century CE",
+  "classification": "Sculpture",
+  "period": "Roman Imperial period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:756755",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 2,
+  "stars": [
+    5,
+    2,
+    4,
+    2
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4140"
+  },
+  "title": "Aureus of Septimius Severus",
+  "culture": "Roman",
+  "century": "3rd century CE",
+  "classification": "Coins",
+  "period": "Roman Imperial period, Middle",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:INV155286_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 2,
+  "stars": [
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    2,
+    3
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4143"
+  },
+  "title": "Head of a Cat",
+  "culture": "Egyptian",
+  "century": "7th-1st century BCE",
+  "classification": "Sculpture",
+  "period": "Late Period to Ptolemaic",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC250033_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 5,
+  "stars": [
+    4,
+    5,
+    4,
+    4
+  ],
+  "rating": 4,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4146"
+  },
+  "title": "Inscribed Arrowhead",
+  "culture": "Greek",
+  "century": "4th century BCE",
+  "classification": "Weapons and Ammunition",
+  "period": "Classical period, Late",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC250112_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 2,
+  "stars": [
+    1
+  ],
+  "rating": 1,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4149"
+  },
+  "title": "Helmet of Corinthian Type",
+  "culture": "Greek",
+  "century": "6th century BCE",
+  "classification": "Armor",
+  "period": "Archaic period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251032_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 10,
+  "stars": [
+    4,
+    5,
+    4,
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f414c"
+  },
+  "title": "Head of Warrior",
+  "culture": "Greek",
+  "century": "1st century BCE-1st century CE",
+  "classification": "Sculpture",
+  "period": "Hellenistic period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:INV046022_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 2,
+  "stars": [
+    2
+  ],
+  "rating": 2,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f414f"
+  },
+  "title": "Spiral Armlet",
+  "culture": "Greek",
+  "century": "15th-13th century BCE",
+  "classification": "Jewelry",
+  "period": "Bronze Age, Late",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC248293_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 5,
+  "stars": [
+    3
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4152"
+  },
+  "title": "Nomos of Tarentum",
+  "culture": "Greek",
+  "century": "6th century BCE",
+  "classification": "Coins",
+  "period": "Archaic period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:COIN00123_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 10,
+  "stars": [
+    2
+  ],
+  "rating": 2,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4155"
+  },
+  "title": "Stater of Tarentum",
+  "culture": "Greek",
+  "century": "3rd century BCE",
+  "classification": "Coins",
+  "period": "Hellenistic period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:COIN00182_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 5,
+  "stars": [
+    2
+  ],
+  "rating": 2,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4158"
+  },
+  "title": "Nestoris with Mythological Scenes",
+  "culture": "Greek",
+  "century": "4th century BCE",
+  "classification": "Vessels",
+  "period": "Classical period, Late, to Early Hellenistic",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC107957_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 10,
+  "stars": [
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f415b"
+  },
+  "title": "Seated Bodhisattva Tara",
+  "culture": "Chinese",
+  "century": "15th century",
+  "classification": "Sculpture",
+  "period": "Ming dynasty, 1368-1644",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251434_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 2,
+  "stars": [
+    3
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f415e"
+  },
+  "title": "Ritual Wine Vessel",
+  "culture": "Chinese",
+  "century": "10th century BCE",
+  "classification": "Vessels",
+  "period": "Zhou dynasty, Western Zhou period, c. 1050-771 BCE",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251550_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 2,
+  "stars": [
+    4,
+    2
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4161"
+  },
+  "title": "Buddha in Abhaya-mudra",
+  "culture": "Chinese",
+  "century": "5th century",
+  "classification": "Sculpture",
+  "period": "Northern Wei, 386-534",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251288_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 10,
+  "stars": [
+    5,
+    4
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4164"
+  },
+  "title": "Budong Mingwang",
+  "culture": "Chinese",
+  "century": "18th century",
+  "classification": "Textile Arts",
+  "period": "Qing dynasty, 1644-1911",
+  "image": "https://nrs.harvard.edu/urn-3:huam:DDC112256_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 5,
+  "stars": [
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4167"
+  },
+  "title": "Hexagonal Lamp",
+  "culture": "Chinese",
+  "century": "19th century",
+  "classification": "Lighting Devices",
+  "period": "Qing dynasty, 1644-1911",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:CARP08863_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 10,
+  "stars": [
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f416a"
+  },
+  "title": "Pair of Hoop Earrings",
+  "culture": "Chinese",
+  "century": "19th-20th century",
+  "classification": "Jewelry",
+  "period": "Northern Wei, 386-534",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:VRS33202_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 2,
+  "stars": [
+    5,
+    4
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f416d"
+  },
+  "title": "Tunic Ornament",
+  "culture": "Byzantine",
+  "century": "5th-6th century",
+  "classification": "Textile Arts",
+  "period": "Byzantine period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:756835",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 10,
+  "stars": [
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4170"
+  },
+  "title": "Empress Bust Weight",
+  "culture": "Byzantine",
+  "century": "5th-7th century",
+  "classification": "Measuring Devices",
+  "period": "Byzantine period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:70440_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 2,
+  "stars": [
+    3
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4173"
+  },
+  "title": "Roundel: Putto on a Horse",
+  "culture": "Byzantine",
+  "century": "6th century",
+  "classification": "Textile Arts",
+  "period": "Byzantine period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:764433",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 2,
+  "stars": [
+    4
+  ],
+  "rating": 4,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4176"
+  },
+  "title": "Lamp or Censer",
+  "culture": "Byzantine",
+  "century": "6th-9th century",
+  "classification": "Ritual Implements",
+  "period": "Byzantine period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:70382_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 30,
+  "price": 2,
+  "stars": [
+    4,
+    3
+  ],
+  "rating": 4,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4179"
+  },
+  "title": "Pentanummium of Justin II, Constantinople",
+  "culture": "Byzantine",
+  "century": "6th century",
+  "classification": "Coins",
+  "period": "Byzantine period, Early",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:COIN19101_dlvr",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 5,
+  "stars": [
+    2
+  ],
+  "rating": 2,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f417c"
+  },
+  "title": "Seated Cat",
+  "culture": "Egyptian",
+  "century": "mid 7th-late 1st century BCE",
+  "classification": "Sculpture",
+  "period": "Late Period to Ptolemaic",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:LEG251291_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 2,
+  "stars": [
+    5,
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f417f"
+  },
+  "title": "Seated Woman",
+  "culture": "Egyptian",
+  "century": "7th century BCE",
+  "classification": "Sculpture",
+  "period": "Late Period, Dynasty 26",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:INV108419_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 5,
+  "stars": [
+    2,
+    3
+  ],
+  "rating": 3,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4182"
+  },
+  "title": "Luster bowl",
+  "culture": "Egyptian",
+  "century": "11th century",
+  "classification": "Vessels",
+  "period": "Fatimid period",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:CARP01476_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 10,
+  "price": 10,
+  "stars": [
+    5,
+    5,
+    5
+  ],
+  "rating": 5,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+},{
+  "_id": {
+    "$oid": "61ddb13c588c23b73d6f4185"
+  },
+  "title": "Fragment of an Offering Basin",
+  "culture": "Egyptian",
+  "century": "3rd-2nd millennium BCE",
+  "classification": "Sculpture",
+  "period": "Middle Kingdom",
+  "image": "https://nrs.harvard.edu/urn-3:HUAM:INV027615_dynmc",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum eleifend elit, ac auctor sapien porta eget. Sed vel nisl ornare elit scelerisque facilisis. Praesent egestas sit amet turpis vitae pellentesque. Morbi ultricies vulputate massa vitae dictum. Praesent lorem justo, hendrerit sed sollicitudin eu, convallis at magna. Aenean ut nisi lobortis, egestas nisi maximus, hendrerit eros. Morbi at nisl eget metus pharetra semper.",
+  "tourTime": 20,
+  "price": 10,
+  "stars": [
+    4,
+    4,
+    3
+  ],
+  "rating": 4,
+  "_class": "rs.ac.singidunum.backendspring.entity.Exhibits"
+}]
